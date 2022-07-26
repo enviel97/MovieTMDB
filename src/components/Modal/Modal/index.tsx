@@ -11,7 +11,7 @@ const Modal = ({ id, active = false, children }: IModalProps) => {
   }, [active]);
 
   return (
-    <div id={id} className={`${styles.modal} ${_active ? styles.active : ""}`}>
+    <div id={id} className={`${styles.modal} ${_active ? "active" : ""}`}>
       {children}
     </div>
   );
