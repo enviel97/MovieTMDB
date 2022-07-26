@@ -30,7 +30,7 @@ export const moviesApi = client.injectEndpoints({
   }),
 });
 
-export const selectMoviesData = createSelector(
+const selectMoviesData = createSelector(
   moviesApi.endpoints.getMoviesPopular.select({ page: 1 }),
   (moviesResult) => moviesResult.data
 );
@@ -41,4 +41,10 @@ export const {
   selectIds: selectMovieIds,
 } = movieAdapter.getSelectors<any>(
   (state) => selectMoviesData(state) ?? initialState
+);
+
+export const selectTopMovies = createSelector(
+  selectMovieIds,
+  (state: number) => state,
+  (moviesResult, quantity) => moviesResult.slice(0, quantity)
 );

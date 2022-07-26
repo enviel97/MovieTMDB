@@ -12,7 +12,7 @@ const ButtonOutline = (props: IButtonOutlineProps) => {
   return (
     <Button
       className={`${styles.btnOutline} ${props.className ?? ""}`}
-      onClick={props.onClick!}
+      onClick={props.onClick}
     >
       {props.children}
     </Button>

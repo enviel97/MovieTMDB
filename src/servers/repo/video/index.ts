@@ -1,15 +1,23 @@
-import { Category } from "../types/props";
+import { Category } from "@/servers/types/props";
+import client from "@api/client";
+// import { createEntityAdapter } from "@reduxjs/toolkit";
 
-export const getVideos = async (category: Category, id: string) => {
-  // try {
-  //   const url = `${category}/${id}/videos`;
-  //   const result = await client.get(url);
-  //   return result;
-  // } catch (error) {
-  //   console.error(error);
-  //   return null;
-  // }
-};
+// const videoAdapter = createEntityAdapter<Video>({});
+
+// const initialState = videoAdapter.getInitialState();
+
+export const videosApi = client.injectEndpoints({
+  endpoints: (builder) => ({
+    getVideos: builder.query<Video, VideoParams>({
+      query: ({ catalog, id }: VideoParams) => ({
+        url: `${catalog}/${id}/videos`,
+        params: {},
+      }),
+      // transformResponse: (res: Video) => res, // transfrom data after request
+      providesTags: (result) => [{ type: "Video", id: result?.id ?? "" }],
+    }),
+  }),
+});
 
 export const searchVideos = async (category: Category, params: any) => {
   // try {

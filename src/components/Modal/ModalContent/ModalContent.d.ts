@@ -1,5 +1,6 @@
-interface IModalContentStyle {
+interface IModalContentView {
+  className?: string;
   onClose?: () => void;
 }
 
-type IModalContentProps = IModalContentStyle & IComponentChildren;
+type IModalContentProps = IModalContentView & IComponentChildren;

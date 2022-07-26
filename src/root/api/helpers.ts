@@ -5,3 +5,6 @@ export const originImage = (imgPath: string) =>
 
 export const w500Image = (imgPath: string) =>
   apiConfig.baseImage + `w500${imgPath}`;
+
+export const trailerVideo = (id: string) =>
+  `https://www.youtube.com/embed/${id}`;

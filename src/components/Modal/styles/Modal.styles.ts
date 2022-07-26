@@ -16,6 +16,14 @@ const useModalStyles = createUseStyles({
     background: `${colors.black}66`,
     opacity: 0,
     visibility: "hidden",
+    "&.active": {
+      opacity: [1, "!important"],
+      visibility: ["visible", "!important"],
+      "& > $modalContent": {
+        opacity: 1,
+        transform: "translateY(0px)",
+      },
+    },
   },
   modalContent: {
     position: "relative",
@@ -39,14 +47,6 @@ const useModalStyles = createUseStyles({
     cursor: "pointer",
     "&:hover": {
       color: colors.primaryColor,
-    },
-  },
-  active: {
-    opacity: [1, "!important"],
-    visibility: ["visible", "!important"],
-    "& > $modalContent": {
-      opacity: 1,
-      transform: "translateY(0px)",
     },
   },
 });
