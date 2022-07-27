@@ -1,6 +1,7 @@
 import { flex } from "../../helpers/mixin";
 import { colors } from "@constants";
 import { kStyles } from "../types/props";
+import { inherits } from "util";
 
 // Marterial style my self
 const decorate: kStyles = {
@@ -15,10 +16,20 @@ const decorate: kStyles = {
     fontSize: "1.5rem",
     fontWeight: "bold",
   },
+
   ".section": {
     padding: [0, "2rem"],
     "&__header": {
-      ...flex({ alignItems: "center", justifyContent: "space-between" }),
+      ...flex({ alignItems: "end", justifyContent: "space-between" }),
+    },
+    "&__title": {
+      cursor: "pointer",
+      "&:hover": {
+        color: "inherit",
+        "& > a": {
+          color: colors.primaryColor,
+        },
+      },
     },
   },
 };
