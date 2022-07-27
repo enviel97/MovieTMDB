@@ -8,3 +8,8 @@ interface IHeroSlideStyles {}
 type IHeroSlideProps<T = any> = IHeroSlideView<T> &
   IHeroSlideStyles &
   IComponentChildren;
+
+interface HeroSlideItemProps {
+  data: any;
+  className: string;
+}
