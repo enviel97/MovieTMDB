@@ -19,28 +19,30 @@ const HomeHeaderItem = ({
   const poster = w500Image(movie.poster_path);
 
   return (
-    <div
-      className={`${styles.item} ${className}`}
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <div className={`${styles.itemContent} container`}>
-        <div className={`${styles.itemContentInfo}`}>
-          <div className='title'>{movie.title}</div>
-          <div className='overview'>{movie.overview}</div>
-          <div className='btns'>
-            <Button onClick={() => onWatchMovieClick(`${data}`)}>
-              Watch now
-            </Button>
-            <ButtonOutline onClick={() => onWatchTrialClick(`${data}`)}>
-              Watch trailer
-            </ButtonOutline>
+    <>
+      <div
+        className={`${styles.item} ${className}`}
+        style={{ backgroundImage: `url(${background})` }}
+      >
+        <div className={`${styles.itemContent} container`}>
+          <div className={`${styles.itemContentInfo}`}>
+            <div className='title'>{movie.title}</div>
+            <div className='overview'>{movie.overview}</div>
+            <div className='btns'>
+              <Button onClick={() => onWatchMovieClick(`${data}`)}>
+                Watch now
+              </Button>
+              <ButtonOutline onClick={() => onWatchTrialClick(`${data}`)}>
+                Watch trailer
+              </ButtonOutline>
+            </div>
+          </div>
+          <div className={styles.itemContentPoster}>
+            <img src={poster} alt={`Poster ${movie.title}`} />
           </div>
         </div>
-        <div className={styles.itemContentPoster}>
-          <img src={poster} alt={`Poster ${movie.title}`} />
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 

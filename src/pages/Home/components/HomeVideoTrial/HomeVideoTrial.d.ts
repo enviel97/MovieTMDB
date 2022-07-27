@@ -2,7 +2,9 @@ interface IHomeVideoTrialViewProps {}
 interface IHomeVideoTrialStylesProps {}
 
 interface IHomeVideoTrialController {
-  openModal: (src: string | undefined) => void;
+  connectTrailer: (src: string | undefined) => void;
+  loadingIs: (isLoading: boolean) => void;
+  openModal: () => void;
 }
 
 type IHomeVideoTrialProps = IHomeVideoTrialViewProps &

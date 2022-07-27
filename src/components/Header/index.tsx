@@ -14,12 +14,11 @@ const headerNavItem: HeaderNavItem[] = [
 ];
 
 const _shrinkHeader = (ref: RefObject<HTMLDivElement>) => {
-  if (!ref.current) return;
   const { body, documentElement } = document;
   if (body.scrollTop > 100 || documentElement.scrollTop > 100) {
-    ref.current.classList.add(shrink);
+    ref.current?.classList.add(shrink);
   } else {
-    ref.current.classList.remove(shrink);
+    ref.current?.classList.remove(shrink);
   }
 };
 
@@ -32,7 +31,7 @@ const Header = () => {
   useEffect(() => {
     const event = () => _shrinkHeader(headerRef);
     window.addEventListener(scroll, event);
-    return window.removeEventListener(scroll, event);
+    return () => window.removeEventListener(scroll, event);
   }, []);
 
   return (

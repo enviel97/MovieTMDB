@@ -5,9 +5,7 @@ interface IHeroSlideView<T> {
 
 interface IHeroSlideStyles {}
 
-type IHeroSlideProps<T = any> = IHeroSlideView<T> &
-  IHeroSlideStyles &
-  IComponentChildren;
+type IHeroSlideProps<T = any> = IHeroSlideView<T> & IHeroSlideStyles;
 
 interface HeroSlideItemProps {
   data: any;

@@ -8,29 +8,43 @@ import React, {
   useImperativeHandle,
   ForwardedRef,
 } from "react";
+import Spinner from "@components/Spinner";
+import { center } from "@stylesHelper/mixin";
+import useBox from "@/hooks/styles/useBox";
 
 const HomeVideoTrial = forwardRef(
   (_, ref: ForwardedRef<IHomeVideoTrialController>) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
-    const { height } = useWindowDimensions();
+    const { height: h } = useWindowDimensions();
     const [src, setSrc] = useState<string | undefined>(undefined);
+    const [active, setActive] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const box = useBox({ height: h / 2 });
+
+    const _reset = () => {
+      setSrc(undefined);
+      setActive(false);
+      setLoading(false);
+    };
 
     const onClose = useCallback(() => {
       iframeRef.current?.setAttribute("src", "");
-      setSrc(undefined);
+      _reset();
     }, [iframeRef]);
 
     useImperativeHandle(ref, () => ({
-      openModal(src: string | undefined) {
-        setSrc(src);
-      },
+      loadingIs: (loading: boolean) => setLoading(loading),
+      openModal: () => setActive(true),
+      connectTrailer: (src?: string) => setSrc(src),
     }));
 
     return (
-      <Modal id={`trial_video`} active={!!src}>
-        <ModalContent className={`trial_content`} onClose={onClose}>
-          {!src ? (
-            <h3>Not trailer</h3>
+      <Modal id={"trial_video"} active={active}>
+        <ModalContent onClose={onClose}>
+          {loading ? (
+            <Spinner.Default height={h / 2} />
+          ) : !src ? (
+            <h1 className={`${box.height} ${box.center}`}>Not trailer</h1>
           ) : (
             <iframe
               ref={iframeRef}
@@ -38,7 +52,7 @@ const HomeVideoTrial = forwardRef(
               frameBorder='0'
               width='100%'
               src={src}
-              height={height / 2}
+              height={h / 2}
             ></iframe>
           )}
         </ModalContent>
