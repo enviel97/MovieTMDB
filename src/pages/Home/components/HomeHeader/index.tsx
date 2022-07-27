@@ -20,18 +20,25 @@ const HomeHeader = () => {
   const [getVideo] = videosApi.useLazyGetVideosQuery();
   const homeVideoTrialController = useRef<IHomeVideoTrialController>(null);
 
-  const onWatchVideoClick = useCallback((id: string) => {
-    navigate(`/movie/${id}`);
-  }, []);
+  const onWatchVideoClick = useCallback(
+    (id: string) => navigate(`/movie/${id}`),
+    [navigate]
+  );
 
-  const onWatchTrailerClick = useCallback(async (id: string) => {
-    const { data, isSuccess } = await getVideo({ catalog: Category.movie, id });
-    let videoSrc: string | undefined;
-    if (isSuccess && data.results.length !== 0) {
-      videoSrc = trailerVideo(data.results[0].key);
-    }
-    homeVideoTrialController.current?.openModal(videoSrc);
-  }, []);
+  const onWatchTrailerClick = useCallback(
+    async (id: string) => {
+      const { data, isSuccess } = await getVideo({
+        catalog: Category.movie,
+        id,
+      });
+      let videoSrc: string | undefined;
+      if (isSuccess && data.results.length !== 0) {
+        videoSrc = trailerVideo(data.results[0].key);
+      }
+      homeVideoTrialController.current?.openModal(videoSrc);
+    },
+    [getVideo]
+  );
 
   if (isLoading) return <div>Loading</div>;
   if (isError) return <div>Error Load</div>;
