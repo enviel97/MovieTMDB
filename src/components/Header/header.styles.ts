@@ -1,7 +1,7 @@
 import { createUseStyles } from "react-jss";
 import { colors, spacings, decorates } from "@constants";
 import breakpoint from "@stylesHelper/breakpoint";
-import { flex } from "@stylesHelper/mixin";
+import { boxShadow, flex } from "@stylesHelper/mixin";
 
 const headerStyles = createUseStyles({
   header: {
@@ -12,9 +12,10 @@ const headerStyles = createUseStyles({
     width: "100%",
     zIndex: 99,
     transition: "height .3s ease, background-color .3s ease",
-    "& .shrink": {
+    "&.shrink": {
       height: spacings.headerShrinkHeight,
       backgroundColor: colors.backgroundColor,
+      boxShadow: boxShadow({}),
     },
   },
   headerWrap: {

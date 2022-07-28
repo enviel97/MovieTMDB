@@ -20,6 +20,9 @@
       "@api": ["root/api"],
       "@api/*": ["root/api/*"],
 
+      "@servers": ["servers"],
+      "@servers/*": ["servers/*"],
+
       "@": ["."],
       "@/*": ["./*"]
     }

@@ -9,7 +9,18 @@ const HeroSlide = <T = any,>({ data, createItem }: IHeroSlideProps<T>) => {
 
   return (
     <div className={styles.heroSlide}>
-      <Swiper autoplay={{ delay: 5000 }} spaceBetween={0} slidesPerView={1}>
+      <Swiper
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        spaceBetween={0}
+        slidesPerView={1}
+        fadeEffect={{ crossFade: true }}
+        lazy
+        loop
+      >
         {data.map((item, index) => {
           return (
             <SwiperSlide key={index} virtualIndex={index}>

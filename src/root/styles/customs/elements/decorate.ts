@@ -15,10 +15,20 @@ const decorate: kStyles = {
     fontSize: "1.5rem",
     fontWeight: "bold",
   },
+
   ".section": {
     padding: [0, "2rem"],
     "&__header": {
-      ...flex({ alignItems: "center", justifyContent: "space-between" }),
+      ...flex({ alignItems: "end", justifyContent: "space-between" }),
+    },
+    "&__title": {
+      cursor: "pointer",
+      "&:hover": {
+        color: "inherit",
+        "& > :nth-child(2)": {
+          color: colors.primaryColor,
+        },
+      },
     },
   },
 };

@@ -1,4 +1,4 @@
-import { TvType } from "../types/props";
+import { TvType } from "../../types/props";
 
 export const getTv = async (type: TvType, params: any) => {
   // try {
