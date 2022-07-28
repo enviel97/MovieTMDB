@@ -1,13 +1,13 @@
 import React, { useCallback, useRef } from "react";
-import { moviesApi } from "@/servers/repo/movie";
 import { HeroSlide } from "@components/Hero";
 import HomeHeaderItem from "./HomeHeaderItem";
 import HomeVideoTrial from "../HomeVideoTrial";
 import { useNavigate } from "react-router-dom";
-import { videosApi } from "@/servers/repo/video";
 import { Category } from "@/servers/types/props";
 import { trailerVideo } from "@api/helpers";
 import Spinner from "@components/Spinner";
+import { moviesApi } from "@servers/repo/movie";
+import { videosApi } from "@servers/repo/video";
 
 const HomeHeader = () => {
   // hooks
@@ -49,12 +49,10 @@ const HomeHeader = () => {
   if (isLoading) return <Spinner.Default height='90vh' />;
   if (isError) return <div>Error Load</div>;
 
-  const _movies = (movies?.ids ?? []).slice(0, 5);
-
   return (
     <>
       <HeroSlide
-        data={_movies}
+        data={movies?.ids ?? []}
         createItem={(props: HeroSlideItemProps) => (
           // Item silde design
           <HomeHeaderItem

@@ -1,6 +1,6 @@
-import { selectMovieById } from "@/servers/repo/movie";
 import { originImage, w500Image } from "@api/helpers";
 import { Button, ButtonOutline } from "@components/Button";
+import { selectMovieById } from "@servers/repo/movie";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import useHomeHeaderItem from "./HomeHeaderItem.styles";
 

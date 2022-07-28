@@ -9,7 +9,6 @@ import React, {
   ForwardedRef,
 } from "react";
 import Spinner from "@components/Spinner";
-import { center } from "@stylesHelper/mixin";
 import useBox from "@/hooks/styles/useBox";
 
 const HomeVideoTrial = forwardRef(

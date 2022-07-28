@@ -16,7 +16,7 @@ const setupJss = () => {
   const globalStyleSheet = jss
     .createStyleSheet(
       { "@global": globalStyles },
-      { index: -1, meta: "styles", link: false }
+      { index: -1, meta: "styles", link: true }
     )
     .attach();
 

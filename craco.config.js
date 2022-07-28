@@ -13,6 +13,7 @@ module.exports = {
       "@stylesHelper": path.resolve(__dirname, "src/root/styles/helpers"),
       "@assets": path.resolve(__dirname, "src/assets"),
       "@api": path.resolve(__dirname, "src/root/api"),
+      "@servers": path.resolve(__dirname, "src/servers"),
     },
   },
   jest: {

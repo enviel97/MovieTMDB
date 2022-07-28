@@ -1,7 +1,6 @@
 import { flex } from "../../helpers/mixin";
 import { colors } from "@constants";
 import { kStyles } from "../types/props";
-import { inherits } from "util";
 
 // Marterial style my self
 const decorate: kStyles = {
@@ -26,7 +25,7 @@ const decorate: kStyles = {
       cursor: "pointer",
       "&:hover": {
         color: "inherit",
-        "& > a": {
+        "& > :nth-child(2)": {
           color: colors.primaryColor,
         },
       },
