@@ -1,21 +1,11 @@
 import { Category } from "@/servers/types/props";
 import client from "@api/client";
-// import { createEntityAdapter } from "@reduxjs/toolkit";
-
-// const videoAdapter = createEntityAdapter<Video>({});
-
-// const initialState = videoAdapter.getInitialState();
+import { getVideo, getSimilar } from "./queries";
 
 export const videosApi = client.injectEndpoints({
   endpoints: (builder) => ({
-    getVideos: builder.query<Video, VideoParams>({
-      query: ({ catalog, id }: VideoParams) => ({
-        url: `${catalog}/${id}/videos`,
-        params: {},
-      }),
-      // transformResponse: (res: Video) => res, // transfrom data after request
-      providesTags: (result) => [{ type: "Video", id: result?.id ?? "" }],
-    }),
+    getVideos: builder.query(getVideo),
+    getSimilar: builder.query(getSimilar),
   }),
 });
 

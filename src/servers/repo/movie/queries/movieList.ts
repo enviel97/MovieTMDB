@@ -1,21 +1,23 @@
 import { IQuery } from "@api/props";
-import { EntityState } from "@reduxjs/toolkit/dist/entities/models";
-import { Paginate, PaginateParams } from "@servers/types/props";
+import { MovieType, Paginate, PaginateParams } from "@servers/types/props";
 
-// export const getMovieList: IQuery<
-//   PaginateParams,
-//   Paginate<Movie>,
-//   EntityState<Movie>
-// > = {
-//   query: (req) => ({
-//     url: `movie/${MovieType.popular}`,
-//     params: { page: req?.page ?? 1 },
-//   }),
-//   transformResponse: (res) => movieAdapter.setAll(initialState, res.results),
-//   providesTags: (result: EntityState<Movie>) => [
-//     { type: "PopularMovie", id: "LIST" },
-//     ...(result?.ids.map((id) => ({ type: "PopularMovie" as const, id })) ?? []),
-//   ],
-// };
+type GetMoviesRequest = {
+  type: MovieType;
+} & PaginateParams;
 
-export default {};
+const getMovies: IQuery<GetMoviesRequest, Paginate<Movie>, Movie[]> = {
+  query: (req) => ({
+    url: `movie/${req!.type}`,
+    params: { page: req?.page ?? 1 },
+  }),
+  transformResponse: (res) => res.results,
+  providesTags: (datas: Movie[]) => [
+    { type: "Movie", id: "LIST" },
+    ...(datas?.map((data) => ({
+      type: "Movie" as const,
+      id: data.id,
+    })) ?? []),
+  ],
+};
+
+export default getMovies;

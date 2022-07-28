@@ -1,3 +1,5 @@
+import { Styles } from "react-jss";
+
 export const flex = (props: {
   alignItems: string;
   justifyContent: string;
@@ -19,5 +21,10 @@ export const boxShadow = ({
   offset = "0px 10px 20px -7px",
 }: {
   color?: string;
-  offset?: {};
-}) => `${color} ${boxShadow}`;
+  offset?: string;
+}) => `${color} ${offset}`;
+
+export const stickyHover = (props: Styles) => ({
+  // eslint-disable-next-line
+  ["@media (hover: hover) and (pointer: fine)"]: { ...props },
+});
