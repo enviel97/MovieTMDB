@@ -25,5 +25,6 @@ export const boxShadow = ({
 }) => `${color} ${offset}`;
 
 export const stickyHover = (props: Styles) => ({
+  // eslint-disable-next-line
   ["@media (hover: hover) and (pointer: fine)"]: { ...props },
 });

@@ -1,5 +1,4 @@
 import { colors, decorates } from "@constants";
-import breakpoints from "@stylesHelper/breakpoint";
 import { stickyHover } from "@stylesHelper/mixin";
 import { createUseStyles } from "react-jss";
 
