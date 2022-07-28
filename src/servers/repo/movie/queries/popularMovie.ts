@@ -2,7 +2,7 @@ import { MovieType, Paginate } from "@/servers/types/props";
 import { createEntityAdapter, EntityState } from "@reduxjs/toolkit";
 import { IQuery } from "@api/props";
 
-const movieAdapter = createEntityAdapter<Movie>({
+export const movieAdapter = createEntityAdapter<Movie>({
   selectId: (movie) => movie.id,
 });
 
@@ -13,7 +13,7 @@ export const getMoviesPopular: IQuery<
   Paginate<Movie>,
   EntityState<Movie>
 > = {
-  query: (_) => ({
+  query: () => ({
     url: `movie/${MovieType.popular}`,
     params: { page: 1 },
   }),
@@ -25,4 +25,4 @@ export const getMoviesPopular: IQuery<
   ],
 };
 
-export default movieAdapter;
+export default getMoviesPopular;

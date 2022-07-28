@@ -18,7 +18,7 @@ export const baseSetup = fetchBaseQuery({
 const tmdbClient = createApi({
   reducerPath: "TMDB_API",
   baseQuery: baseSetup,
-  tagTypes: ["Movie", "Video"],
+  tagTypes: ["Movie", "PopularMovie", "TV", "Similar", "Video"],
   // tagTypes: ["Video", "TV", "Credit", "Movie"],
   endpoints: () => ({}),
 });

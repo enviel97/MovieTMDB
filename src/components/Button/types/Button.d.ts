@@ -5,15 +5,15 @@ interface IButtonProps {
   mainColor?: string;
 }
 
-interface DefaultButotn {
+interface DefaultButton {
   small?: boolean;
   color?: string;
 }
 
-type IButtonDefaultProps = IButtonProps & DefaultButotn;
+type IButtonDefaultProps = IButtonProps & DefaultButton;
 
 interface OutlineProps {
   onHoverColor?: string;
 }
 
-type IButtonOutlineProps = IButtonProps & OutlineProps;
+type IButtonOutlineProps = IButtonProps & OutlineProps & DefaultButton;

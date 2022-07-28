@@ -1,12 +1,18 @@
 import React from "react";
 import HomeHeader from "../components/HomeHeader";
-import HomeTrendingMovie from "../components/HomeTrendingMovie";
+import {
+  TopRateMovie,
+  TrendingMovie,
+  TrendingTV,
+} from "../components/HomeListMovie";
 
 const Home = () => {
   return (
     <React.Fragment>
       <HomeHeader />
-      <HomeTrendingMovie />
+      <TrendingMovie />
+      <TopRateMovie />
+      <TrendingTV />
     </React.Fragment>
   );
 };

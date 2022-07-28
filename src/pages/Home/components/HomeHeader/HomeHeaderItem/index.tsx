@@ -1,6 +1,6 @@
 import { originImage, w500Image } from "@api/helpers";
 import { Button, ButtonOutline } from "@components/Button";
-import { selectMovieById } from "@servers/repo/movie";
+import { selectMoviePopularById } from "@servers/repo/movie";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import useHomeHeaderItem from "./HomeHeaderItem.styles";
 
@@ -11,7 +11,7 @@ const HomeHeaderItem = ({
   onWatchTrialClick,
 }: IHomeHeaderItemProps) => {
   const styles = useHomeHeaderItem();
-  const movie = useSelector((state) => selectMovieById(state, data));
+  const movie = useSelector((state) => selectMoviePopularById(state, data));
 
   if (!movie) return <>Loading</>;
 

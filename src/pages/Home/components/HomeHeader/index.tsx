@@ -15,7 +15,7 @@ const HomeHeader = () => {
     data: movies,
     isError,
     isLoading,
-  } = moviesApi.useGetMoviesPopularQuery({ page: 1 });
+  } = moviesApi.useGetMoviesPopularQuery({});
   const navigate = useNavigate();
   const [fetch] = videosApi.useLazyGetVideosQuery();
   const controller = useRef<IHomeVideoTrialController>(null);
@@ -50,7 +50,7 @@ const HomeHeader = () => {
   if (isError) return <div>Error Load</div>;
 
   return (
-    <>
+    <section>
       <HeroSlide
         data={movies?.ids ?? []}
         createItem={(props: HeroSlideItemProps) => (
@@ -64,7 +64,7 @@ const HomeHeader = () => {
         )}
       />
       <HomeVideoTrial ref={controller} />
-    </>
+    </section>
   );
 };
 

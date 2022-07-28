@@ -10,6 +10,7 @@ const HeroSlide = <T = any,>({ data, createItem }: IHeroSlideProps<T>) => {
   return (
     <div className={styles.heroSlide}>
       <Swiper
+        lazy={{ loadPrevNext: true, loadOnTransitionStart: true }}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
@@ -17,8 +18,6 @@ const HeroSlide = <T = any,>({ data, createItem }: IHeroSlideProps<T>) => {
         }}
         spaceBetween={0}
         slidesPerView={1}
-        fadeEffect={{ crossFade: true }}
-        lazy
         loop
       >
         {data.map((item, index) => {
