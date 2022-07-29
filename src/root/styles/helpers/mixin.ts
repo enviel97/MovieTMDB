@@ -1,12 +1,9 @@
 import { Styles } from "react-jss";
 
-export const flex = (props: {
-  alignItems: string;
-  justifyContent: string;
-}) => ({
+export const flex = (alignItems: string, justifyContent: string) => ({
   display: "flex",
-  alignItems: props.alignItems,
-  justifyContent: props.justifyContent,
+  alignItems: alignItems,
+  justifyContent: justifyContent,
 });
 
 export const center = () => ({

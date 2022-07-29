@@ -5,7 +5,7 @@ import { createUseStyles } from "react-jss";
 
 const useModalStyles = createUseStyles({
   modal: {
-    ...flex({ alignItems: "center", justifyContent: "center" }),
+    ...flex("center", "center"),
     position: "fixed",
     top: 0,
     left: 0,

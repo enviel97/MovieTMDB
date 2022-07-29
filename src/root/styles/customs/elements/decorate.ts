@@ -19,7 +19,7 @@ const decorate: kStyles = {
   ".section": {
     padding: [0, "2rem"],
     "&__header": {
-      ...flex({ alignItems: "end", justifyContent: "space-between" }),
+      ...flex("end", "space-between"),
     },
     "&__title": {
       cursor: "pointer",

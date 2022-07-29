@@ -46,7 +46,7 @@ const useHomeHeaderItem = createUseStyles({
     },
   },
   itemContent: {
-    ...flex({ justifyContent: "center", alignItems: "center" }),
+    ...flex("center", "center"),
   },
   itemContentInfo: {
     width: "55%",
@@ -85,7 +85,7 @@ const useHomeHeaderItem = createUseStyles({
   itemContentPoster: {
     flex: 1,
     position: "relative",
-    ...flex({ alignItems: "center", justifyContent: "center" }),
+    ...flex("center", "center"),
     "& img": {
       width: "400px",
       borderRadius: decorates.borderRadius,
