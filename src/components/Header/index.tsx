@@ -35,7 +35,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={styles.header} ref={headerRef}>
+    <header className={styles.header} ref={headerRef}>
       <div className={styles.headerWrap}>
         <Link className={styles.logo} to='/'>
           <img src={Logo} alt='#Logo' />
@@ -52,7 +52,7 @@ const Header = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </header>
   );
 };
 
