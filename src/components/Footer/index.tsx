@@ -11,18 +11,21 @@ const Footer = () => {
       <div className={`${styles.footerContent}`}>
         <div className='menus'>
           <div className='menu'>
+            <h1 className='title'>Title</h1>
             <Link to='/'>Home</Link>
             <Link to='/'>Contact us</Link>
             <Link to='/'>Term of services</Link>
             <Link to='/'>About us</Link>
           </div>
           <div className='menu'>
+            <h1 className='title'>Title</h1>
             <Link to='/'>Live</Link>
             <Link to='/'>FAQ</Link>
             <Link to='/'>Premium</Link>
             <Link to='/'>Private policy</Link>
           </div>
           <div className='menu'>
+            <h1 className='title'>Title</h1>
             <Link to='/'>You must watch</Link>
             <Link to='/'>Recent release</Link>
             <Link to='/'>Top IMDB</Link>
