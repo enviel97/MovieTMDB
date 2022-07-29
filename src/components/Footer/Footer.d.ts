@@ -1,0 +1,3 @@
+interface IFooterStyles {
+  src: string;
+}

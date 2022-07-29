@@ -1,6 +1,7 @@
 interface IButtonProps {
   className?: Classes | string;
   onClick?: () => void;
+  disable?: boolean;
   children?: any;
   mainColor?: string;
 }

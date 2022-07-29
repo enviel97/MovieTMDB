@@ -8,12 +8,10 @@ const Button = (props: IButtonDefaultProps) => {
     small: props.small,
   });
 
-  const classList = [styles.btn, props.className ?? ""].join(" ").trim();
-
   return (
     <button
-      disabled={!props.onClick}
-      className={classList}
+      disabled={props.disable ?? false}
+      className={`${styles.btn} ${props.className}`}
       onClick={props.onClick!}
     >
       {props.children}

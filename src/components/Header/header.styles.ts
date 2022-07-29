@@ -21,19 +21,13 @@ const headerStyles = createUseStyles({
   headerWrap: {
     height: "100%",
     padding: "0 2rem",
-    ...flex({
-      alignItems: "center",
-      justifyContent: "space-between",
-    }),
+    ...flex("center", "space-between"),
     ...breakpoint.mobile({
       justifyContent: "center",
     }),
   },
   headerNav: {
-    ...flex({
-      alignItems: "center",
-      justifyContent: "unset",
-    }),
+    ...flex("center", "unset"),
     "& > * ~ *": {
       marginLeft: "2rem",
     },
@@ -66,7 +60,7 @@ const headerStyles = createUseStyles({
       backgroundColor: colors.backgroundColor,
       padding: "0 2rem",
       boxShadow: `${decorates.boxShadow.offset} ${decorates.boxShadow.color}`,
-      ...flex({ alignItems: "center", justifyContent: "space-between" }),
+      ...flex("center", "space-between"),
       "& > * ~ *": {
         marginLeft: "0px",
       },
@@ -75,10 +69,7 @@ const headerStyles = createUseStyles({
   logo: {
     fontSize: "2.5rem",
     fontWeight: "600",
-    ...flex({
-      alignItems: "center",
-      justifyContent: "unset",
-    }),
+    ...flex("center", "unset"),
     "& img": {
       marginRight: "16px",
       width: "100px",
