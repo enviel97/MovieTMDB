@@ -4,6 +4,24 @@ import { kStyles } from "../types/props";
 
 // Marterial style my self
 const decorate: kStyles = {
+  "body::-webkit-scrollbar": {
+    width: "1.6vh",
+    "&-track": {
+      backgroundColor: "#101010",
+      boxShadow: "inset 0 0 2px #202020",
+    },
+    "&-thumb": {
+      backgroundColor: "#000000",
+      border: "0.1vw outset #202020",
+      borderRadius: "0px",
+      transition: ["border-radius", ".5s", "ease"],
+      "&:hover": {
+        background: "#ffffff10",
+        borderRadius: "5vw",
+      },
+    },
+  },
+
   ".overlay": { backgroundColor: colors.overplay },
   ".container": {
     maxWidth: "1660px",
