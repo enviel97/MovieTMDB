@@ -12,6 +12,9 @@ const breakpoints = {
   tablet: (props: Styles) => ({
     [media(spacings.device.tablet)]: { ...props },
   }),
+  custom: (maxLimit: number, props: Styles) => ({
+    [media(maxLimit)]: { ...props },
+  }),
 };
 
 export default breakpoints;

@@ -21,6 +21,9 @@ const tmdbClient = createApi({
   tagTypes: ["Movie", "PopularMovie", "TV", "Similar", "Video"],
   // tagTypes: ["Video", "TV", "Credit", "Movie"],
   endpoints: () => ({}),
+  refetchOnMountOrArgChange: false,
+  refetchOnReconnect: false,
+  refetchOnFocus: false,
 });
 
 export default tmdbClient;

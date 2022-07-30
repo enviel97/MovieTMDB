@@ -6,19 +6,17 @@ import { useNavigate } from "react-router-dom";
 import { Category } from "@/servers/types/props";
 import { trailerVideo } from "@api/helpers";
 import Spinner from "@components/Spinner";
-import { moviesApi } from "@servers/repo/movie";
+import { moviesApi, selectSlidePopular } from "@servers/repo/movie";
 import { videosApi } from "@servers/repo/video";
+import { useSelector } from "react-redux";
 
 const HomeHeader = () => {
   // hooks
-  const {
-    data: movies,
-    isError,
-    isLoading,
-  } = moviesApi.useGetMoviesPopularQuery({});
+  const { data, isError, isLoading } = moviesApi.useGetMoviesPopularQuery({});
   const navigate = useNavigate();
   const [fetch] = videosApi.useLazyGetVideosQuery();
   const controller = useRef<IHomeVideoTrialController>(null);
+  const movies = useSelector(selectSlidePopular);
 
   const onWatchVideoClick = useCallback(
     (id: string) => navigate(`/movie/${id}`),
@@ -52,7 +50,7 @@ const HomeHeader = () => {
   return (
     <section>
       <HeroSlide
-        data={movies?.ids ?? []}
+        data={movies ?? []}
         createItem={(props: HeroSlideItemProps) => (
           // Item silde design
           <HomeHeaderItem

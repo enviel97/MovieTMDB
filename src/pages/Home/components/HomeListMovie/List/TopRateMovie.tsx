@@ -1,15 +1,16 @@
 import List from "@components/Hero/List";
-import { moviesApi } from "@servers/repo/movie";
+import { moviesApi, selectMovieTrending } from "@servers/repo/movie";
 import { MovieType } from "@servers/types/props";
 import { Link } from "react-router-dom";
 import MovieItem from "../MovieItem";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const TopRateMovie = () => {
   const href = "/movie";
-  const { data: movies, isLoading } = moviesApi.useGetMoviesQuery({
-    type: MovieType.top_rated,
-  });
+  const { isLoading } = moviesApi.useGetMoviesTrendingQuery({});
+
+  const movies = useSelector(selectMovieTrending);
 
   return (
     <section className='container'>
@@ -20,12 +21,16 @@ const TopRateMovie = () => {
         </Link>
 
         <List
-          data={movies ?? []}
+          data={Object.values(movies) ?? []}
           createItem={({ data }: { data: Movie }) => (
             <MovieItem
               href={`${href}/${data.id}`}
               src={data.poster_path}
               name={data.title}
+              releaseDate={data.release_date}
+              popularity={data.popularity}
+              voteCount={data.vote_count}
+              isAdult={data.adult}
               isLoading={isLoading}
             />
           )}

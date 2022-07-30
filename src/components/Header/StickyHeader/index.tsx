@@ -1,5 +1,5 @@
 import React, { RefObject, useEffect, useRef } from "react";
-import headerStyles from "./header.styles";
+import headerStyles from "./StickyHeader.styles";
 import Logo from "@assets/images/logo/logo_dark.png";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ const _shrinkHeader = (ref: RefObject<HTMLDivElement>) => {
   }
 };
 
-const Header = () => {
+const StickyHeader = () => {
   const { pathname } = useLocation();
   const headerRef = useRef<HTMLDivElement>(null);
   const active = headerNavItem.findIndex((e) => e.path === pathname);
@@ -56,4 +56,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default StickyHeader;

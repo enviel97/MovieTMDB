@@ -13,11 +13,10 @@ const Wrapper = (props: ISpinnerStylesProps & IComponentChildren) => {
 
 const DefaultSpinner = (props: ISpinnerProps) => {
   return (
-    <Wrapper {...props}>
+    <Wrapper height={props.height} width={props.width}>
       <DotLoader
         size={props.spinnerSize ?? "6.25rem"}
         color={props.color ?? colors.primaryColor}
-        {...props}
       />
     </Wrapper>
   );
