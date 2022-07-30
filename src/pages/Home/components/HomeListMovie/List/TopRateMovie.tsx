@@ -26,6 +26,10 @@ const TopRateMovie = () => {
               href={`${href}/${data.id}`}
               src={data.poster_path}
               name={data.title}
+              releaseDate={data.release_date}
+              popularity={data.popularity}
+              voteCount={data.vote_count}
+              isAdult={data.adult}
               isLoading={isLoading}
             />
           )}

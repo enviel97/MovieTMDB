@@ -26,6 +26,8 @@ const TrendingTV = () => {
               href={`${href}/${data.id}`}
               src={data.poster_path}
               name={data.name}
+              voteCount={data.vote_count}
+              popularity={data.popularity}
               isLoading={isLoading}
             />
           )}

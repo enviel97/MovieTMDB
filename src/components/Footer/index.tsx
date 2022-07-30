@@ -1,32 +1,26 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import useFooterStyles from "./Footer.styles";
 import bgFooter from "@assets/images/bgFooter.jpg";
 import Line from "@components/Line";
 import { BsFacebook, BsGithub, BsTwitter } from "react-icons/bs";
-import { Button } from "@components/Button";
-const IconsList = () => {
-  const onHref = (href: string) => {
-    window.location.href = href;
-  };
-
-  return (
-    <div className='btns'>
-      <Button className={"btn"} onClick={() => onHref("")} mainColor='#1da1f2'>
-        <BsTwitter />
-      </Button>
-      <Button className={"btn"} onClick={() => onHref("")} mainColor='#000000'>
-        <BsGithub />
-      </Button>
-      <Button className={"btn"} onClick={() => onHref("")} mainColor='#0d8af0'>
-        <BsFacebook />
-      </Button>
-    </div>
-  );
-};
+import { Button, ButtonOutline } from "@components/Button";
+import { Modal, ModalContent } from "@components/Modal";
 
 const Footer = () => {
   const styles = useFooterStyles({ src: bgFooter });
+  const [active, setActive] = useState(false);
+
+  // go to other site
+  const onHref = (href: string) => {
+    if (!href) {
+      setActive(true);
+      return;
+    }
+    window.open(href, "_blank");
+  };
+
+  const onClose = () => setActive(() => false);
 
   return (
     <footer className={`${styles.background} ${styles.footer}`}>
@@ -43,7 +37,28 @@ const Footer = () => {
               </p>
             </>
             <Line>Social</Line>
-            <IconsList />
+            <div className='btns'>
+              <Button
+                className={"btn"}
+                onClick={() => onHref("")}
+                mainColor='#1da1f2'
+              >
+                <BsTwitter />
+              </Button>
+              <ButtonOutline
+                className={"btn"}
+                onClick={() => onHref("https://github.com/enviel97/MovieTMDB")}
+              >
+                <BsGithub />
+              </ButtonOutline>
+              <Button
+                className={"btn"}
+                onClick={() => onHref("")}
+                mainColor='#0d8af0'
+              >
+                <BsFacebook />
+              </Button>
+            </div>
           </div>
           <div className='menu right'>
             <h1 className='title'>Useful link</h1>
@@ -60,6 +75,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <Modal id='notice' active={active}>
+        <ModalContent onClose={onClose}>
+          This link is not available
+        </ModalContent>
+      </Modal>
     </footer>
   );
 };

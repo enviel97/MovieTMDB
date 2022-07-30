@@ -2,6 +2,7 @@ import React from "react";
 import { DotLoader } from "react-spinners";
 import useSpinnerStyle from "./Spinner.styles";
 import { colors } from "@constants";
+import { flex } from "@stylesHelper/mixin";
 
 const Wrapper = (props: ISpinnerStylesProps & IComponentChildren) => {
   const styles = useSpinnerStyle({
@@ -13,11 +14,10 @@ const Wrapper = (props: ISpinnerStylesProps & IComponentChildren) => {
 
 const DefaultSpinner = (props: ISpinnerProps) => {
   return (
-    <Wrapper {...props}>
+    <Wrapper height={props.height} width={props.width}>
       <DotLoader
         size={props.spinnerSize ?? "6.25rem"}
         color={props.color ?? colors.primaryColor}
-        {...props}
       />
     </Wrapper>
   );

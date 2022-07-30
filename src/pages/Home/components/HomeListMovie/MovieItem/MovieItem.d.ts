@@ -5,6 +5,10 @@ interface IMovieItemStyles {
 interface IMovieItemViews {
   name: string;
   href: string;
+  releaseDate?: string;
+  voteCount?: number;
+  popularity?: number;
+  isAdult?: boolean;
   isLoading?: boolean;
 }
 

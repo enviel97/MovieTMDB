@@ -26,7 +26,11 @@ const TrendingMovie = () => {
               href={`${href}/${data.id}`}
               src={data.poster_path}
               name={data.title}
+              voteCount={data.vote_count}
+              popularity={data.popularity}
+              releaseDate={data.release_date}
               isLoading={isLoading}
+              isAdult={data.adult}
             />
           )}
         />

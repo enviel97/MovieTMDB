@@ -37,6 +37,8 @@ const useModalStyles = createUseStyles({
     ...breakpoints.tablet({ width: "80%" }),
     ...breakpoints.mobile({ width: "100%" }),
     opacity: 0,
+    fontSize: "1rem",
+    fontFamily: ["Dosis", "sans-serif"],
     transform: "translateY(-250px)",
   },
   modalContentClose: {
