@@ -3,7 +3,7 @@ import { RouteObject } from "react-router-dom";
 
 const catalogRoute: RouteObject[] = [
   {
-    path: "/catalog",
+    path: "/:category",
     element: <Catalog />,
   },
 ];

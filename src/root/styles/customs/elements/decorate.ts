@@ -24,7 +24,7 @@ const decorate: kStyles = {
 
   ".overlay": { backgroundColor: colors.overplay },
   ".container": {
-    maxWidth: "1660px",
+    maxWidth: "85vw",
     margin: "auto",
   },
   ".mb3": { marginBottom: "3rem" },
