@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { size } from "@/helpers/size";
 import useBox from "@/hooks/styles/useBox";
 import { w500Image } from "@api/helpers";
 import Spinner from "@components/Spinner";
-import { Link } from "react-router-dom";
 import useMovieItemStyle from "./MovieItem.styles";
 import { GiPlayButton } from "react-icons/gi";
-import { Button, ButtonOutline } from "@components/Button";
+import { Button } from "@components/Button";
 import { BsGraphUp, BsHeart } from "react-icons/bs";
 import { formatDate } from "@/helpers/date";
 

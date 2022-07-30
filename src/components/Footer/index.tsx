@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useFooterStyles from "./Footer.styles";
 import bgFooter from "@assets/images/bgFooter.jpg";
