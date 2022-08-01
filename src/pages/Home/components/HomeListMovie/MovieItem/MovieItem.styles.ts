@@ -3,12 +3,11 @@ import { flex, stickyHover } from "@stylesHelper/mixin";
 import { createUseStyles } from "react-jss";
 
 const useMovieItemStyle = createUseStyles({
-  backgroud: (props: IMovieItemStyles) => ({
-    backgroundImage: `url(${props.src})`,
-    backgroundPosition: "top",
+  backgroud: {
+    backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-  }),
+  },
   movieCard: {},
   movieCardContent: {
     position: "relative",

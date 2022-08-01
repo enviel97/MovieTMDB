@@ -2,14 +2,16 @@ import { PageHeader } from "@components/Header";
 import React from "react";
 import { useParams } from "react-router-dom";
 import MovieGrid from "../components/MovieGrid";
+import TVGrid from "../components/TvGrid";
 
 const Catalog = () => {
   const { category } = useParams();
-  const title = !!category && category === "movie" ? "MOVIES" : "TV SERIES";
+  const title = category === "movie" ? "MOVIES" : "TV SERIES";
+
   return (
     <React.Fragment>
       <PageHeader>{title}</PageHeader>
-      <MovieGrid />
+      {category === "movie" ? <MovieGrid /> : <TVGrid />}
     </React.Fragment>
   );
 };

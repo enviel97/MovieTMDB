@@ -1,13 +1,17 @@
+import { genarateEmptyList } from "@helpers/entity";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useListStyles from "./List.styles";
 
 const List = (props: IListProps) => {
   const styles = useListStyles();
+
+  const data = props.data.length === 0 ? genarateEmptyList() : props.data;
+
   return (
     <div className={`${styles.list}`}>
       <Swiper grabCursor={true} spaceBetween={10} slidesPerView={"auto"}>
-        {props.data.map((data, i) => (
+        {data.map((data, i) => (
           <SwiperSlide className='list-item' key={i}>
             {props.createItem({ data })}
           </SwiperSlide>

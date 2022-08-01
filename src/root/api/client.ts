@@ -1,29 +1,25 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import queryString from "query-string";
+import axios from "axios";
 import apiConfig from "./config";
+import queryString from "query-string";
 
-export const baseSetup = fetchBaseQuery({
-  baseUrl: apiConfig.baseUrl,
+const client = axios.create({
+  baseURL: apiConfig.baseUrl,
+  headers: { "Content-Type": "application/json;charset=utf-8" },
   paramsSerializer: (params) =>
     queryString.stringify({
       ...params,
       api_key: apiConfig.apiKey,
     }),
-  prepareHeaders: (headers) => {
-    headers.set("Content-Type", "application/json;charset=utf-8");
-    return headers;
-  },
 });
 
-const tmdbClient = createApi({
-  reducerPath: "TMDB_API",
-  baseQuery: baseSetup,
-  tagTypes: ["Movie", "PopularMovie", "TV", "Similar", "Video"],
-  // tagTypes: ["Video", "TV", "Credit", "Movie"],
-  endpoints: () => ({}),
-  refetchOnMountOrArgChange: false,
-  refetchOnReconnect: false,
-  refetchOnFocus: false,
+client.interceptors.request.use(async (config) => config);
+client.interceptors.response.use((res) => {
+  try {
+    return res;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 });
 
-export default tmdbClient;
+export default client;

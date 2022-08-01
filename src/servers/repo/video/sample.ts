@@ -1,13 +1,4 @@
 import { Category } from "@/servers/types/props";
-import client from "@api/client";
-import { getVideo, getSimilar } from "./queries";
-
-export const videosApi = client.injectEndpoints({
-  endpoints: (builder) => ({
-    getVideos: builder.query(getVideo),
-    getSimilar: builder.query(getSimilar),
-  }),
-});
 
 export const searchVideos = async (category: Category, params: any) => {
   // try {

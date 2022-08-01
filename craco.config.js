@@ -14,6 +14,7 @@ module.exports = {
       "@assets": path.resolve(__dirname, "src/assets"),
       "@api": path.resolve(__dirname, "src/root/api"),
       "@servers": path.resolve(__dirname, "src/servers"),
+      "@helpers": path.resolve(__dirname, "src/helpers"),
     },
   },
   jest: {

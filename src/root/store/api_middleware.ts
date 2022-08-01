@@ -1,5 +1,3 @@
-import tmdbClient from "@api/client";
-
-const rootApiMiddleware = (): any[] => [tmdbClient.middleware];
+const rootApiMiddleware = (): any[] => [];
 
 export default rootApiMiddleware;

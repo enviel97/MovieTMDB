@@ -1,11 +1,17 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+
 import useGridStyles from "./Grid.styles";
 
-const Grid = () => {
+const Grid = (props: IGridProps) => {
   const styles = useGridStyles();
 
-  return <div>Grid movies</div>;
+  return (
+    <div className={`${styles.gridContainer}`}>
+      {props.data.map((data, i) => (
+        <div key={i}>{props.createItem({ data })}</div>
+      ))}
+    </div>
+  );
 };
 
 export default Grid;

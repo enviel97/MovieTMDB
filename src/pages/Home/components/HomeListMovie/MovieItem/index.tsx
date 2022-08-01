@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useBox from "@/hooks/styles/useBox";
 import { w500Image } from "@api/helpers";
 import Spinner from "@components/Spinner";
@@ -7,6 +7,8 @@ import { GiPlayButton } from "react-icons/gi";
 import { Button } from "@components/Button";
 import { BsGraphUp, BsHeart } from "react-icons/bs";
 import { formatDate } from "@/helpers/date";
+import LazyLoadBackground from "@components/LazyLoad/background";
+import { useNavigate } from "react-router-dom";
 
 const MovieItemLoading = () => {
   const boxStyle = useBox({});
@@ -27,29 +29,41 @@ const MovieItemLoading = () => {
   );
 };
 
-const MovieItem = ({
-  src,
-  name,
-  href,
-  releaseDate,
-  voteCount = 0,
-  popularity = 0,
-  isLoading,
-  isAdult,
-}: IMovieItemProps) => {
+const MovieItem = (props: IMovieItemProps) => {
+  const {
+    src,
+    name,
+    href,
+    releaseDate,
+    voteCount = 0,
+    popularity = 0,
+    isLoading,
+    isAdult,
+  } = props;
+
   const [loading, setLoading] = useState(true);
-  const styles = useMovieItemStyle({ src: w500Image(src) });
+  const styles = useMovieItemStyle();
+  const navigate = useNavigate();
+
+  const _onWatchClick = useCallback(() => {
+    navigate(href);
+  }, [href, navigate]);
 
   useEffect(() => {
-    setLoading((_) => isLoading ?? true);
-  }, [isLoading]);
+    if (src !== undefined) {
+      setLoading(isLoading ?? true);
+    }
+  }, [isLoading, src]);
 
   if (loading) return <MovieItemLoading />;
 
   return (
     <div className={styles.movieCard}>
-      <div className={`${styles.backgroud} ${styles.movieCardContent}`}>
-        <Button className={"btn-play"}>
+      <LazyLoadBackground
+        src={w500Image(src)}
+        className={`${styles.backgroud} ${styles.movieCardContent}`}
+      >
+        <Button className={"btn-play"} onClick={_onWatchClick}>
           <GiPlayButton />
         </Button>
         {!!isAdult && <div className={`${"adult-flag"}`}>adult</div>}
@@ -68,7 +82,7 @@ const MovieItem = ({
             </span>
           </div>
         </div>
-      </div>
+      </LazyLoadBackground>
       <h3 className={styles.movieTitle}>{name}</h3>
     </div>
   );

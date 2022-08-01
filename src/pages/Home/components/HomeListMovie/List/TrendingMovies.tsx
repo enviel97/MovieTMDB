@@ -1,36 +1,35 @@
 import List from "@components/Hero/List";
-import { moviesApi, selectMoviePopular } from "@servers/repo/movie";
-import { Link } from "react-router-dom";
 import MovieItem from "../MovieItem";
 import React from "react";
-import { useSelector } from "react-redux";
-import { Dictionary } from "@reduxjs/toolkit";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "@/hooks/api/useAppSelector";
+import { selectAllMovieTrendings } from "@servers/repo/movie/getMoviesTrending.slice";
 
-const TrendingMovie = () => {
+const TopRateMovie = () => {
   const href = "/movie";
-  const { isLoading } = moviesApi.useGetMoviesPopularQuery({});
-  const movies = useSelector((state) => selectMoviePopular(state));
+  const isLoading = useAppSelector((state) => state.moviesTrending.loading);
+  const datas = useAppSelector(selectAllMovieTrendings);
 
   return (
     <section className='container'>
       <div className='section mb3'>
         <Link className='section__header section__title mb2' to={href}>
-          <h2>Trending Movies</h2>
+          <h2>Top Rated Movies</h2>
           <h4>View more</h4>
         </Link>
 
         <List
-          data={Object.values(movies)}
+          data={datas}
           createItem={({ data }: { data: Movie }) => (
             <MovieItem
               href={`${href}/${data.id}`}
               src={data.poster_path}
               name={data.title}
-              voteCount={data.vote_count}
-              popularity={data.popularity}
               releaseDate={data.release_date}
-              isLoading={isLoading}
+              popularity={data.popularity}
+              voteCount={data.vote_count}
               isAdult={data.adult}
+              isLoading={isLoading}
             />
           )}
         />
@@ -38,4 +37,4 @@ const TrendingMovie = () => {
     </section>
   );
 };
-export default TrendingMovie;
+export default TopRateMovie;

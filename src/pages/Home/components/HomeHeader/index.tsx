@@ -5,47 +5,41 @@ import HomeVideoTrial from "../HomeVideoTrial";
 import { useNavigate } from "react-router-dom";
 import { Category } from "@/servers/types/props";
 import { trailerVideo } from "@api/helpers";
-import Spinner from "@components/Spinner";
-import { moviesApi, selectSlidePopular } from "@servers/repo/movie";
-import { videosApi } from "@servers/repo/video";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "@/hooks/api/useAppSelector";
+import { selectMovieSlice } from "@servers/repo/movie/getMoviesPopular.slice";
+import videoApi from "@servers/api/videoApi";
 
 const HomeHeader = () => {
   // hooks
-  const { data, isError, isLoading } = moviesApi.useGetMoviesPopularQuery({});
   const navigate = useNavigate();
-  const [fetch] = videosApi.useLazyGetVideosQuery();
   const controller = useRef<IHomeVideoTrialController>(null);
-  const movies = useSelector(selectSlidePopular);
+  const movies = useAppSelector(selectMovieSlice);
 
   const onWatchVideoClick = useCallback(
     (id: string) => navigate(`/movie/${id}`),
     [navigate]
   );
 
-  const onWatchTrailerClick = useCallback(
-    async (id: string) => {
-      if (!controller.current) return;
+  const onWatchTrailerClick = useCallback(async (id: string) => {
+    if (!controller.current) return;
 
-      controller.current.loadingIs(true);
-      controller.current.openModal();
+    controller.current.loadingIs(true);
+    controller.current.openModal();
 
-      const { data, isSuccess } = await fetch({
-        catalog: Category.movie,
+    try {
+      const { data } = await videoApi.getVideos({
+        type: Category.movie,
         id,
       });
-      controller.current.loadingIs(false);
       let videoSrc: string | undefined;
-      if (isSuccess && data.results.length !== 0) {
+      if (data.results.length !== 0) {
         videoSrc = trailerVideo(data.results[0].key);
         controller.current.connectTrailer(videoSrc);
       }
-    },
-    [fetch]
-  );
-
-  if (isLoading) return <Spinner.Default height='90vh' />;
-  if (isError) return <div>Error Load</div>;
+    } catch (error) {
+      controller.current.loadingIs(false);
+    }
+  }, []);
 
   return (
     <section>

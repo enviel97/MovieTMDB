@@ -23,6 +23,12 @@ export interface Paginate<T> {
   total_results: number;
 }
 
-export interface PaginateParams {
+export interface PaginateParams<T = MovieType | TvType> {
   page?: number;
+  type: T;
+}
+
+export interface VideoParams {
+  type: Category;
+  id: string;
 }
