@@ -10,7 +10,7 @@ const HeroSlide = <T = any,>({ data, createItem }: IHeroSlideProps<T>) => {
   return (
     <div className={styles.heroSlide}>
       <Swiper
-        lazy={{ loadPrevNext: true, loadOnTransitionStart: true }}
+        lazy={{ loadPrevNext: true }}
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,

@@ -4,6 +4,7 @@ interface ISpinnerStylesProps {
 }
 
 interface ISpinnerViewProps {
+  className?: string;
   spinnerSize?: Property.Height<string | number>;
   color?: string;
   loading?: boolean;

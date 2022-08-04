@@ -7,7 +7,7 @@ const PageHeader = (props: IPageHeaderProps) => {
 
   return (
     <div className={`${styles.background} ${styles.pageHeader}`}>
-      <h2>{props.children}</h2>
+      <h2>{props.title}</h2>
     </div>
   );
 };

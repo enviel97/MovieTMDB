@@ -1,15 +1,13 @@
 import List from "@components/Hero/List";
-import { TvType } from "@servers/types/props";
 import { Link } from "react-router-dom";
 import MovieItem from "../MovieItem";
-import React from "react";
-import { tvApi } from "@servers/repo/tv";
+import { useAppSelector } from "@/hooks/api/useAppSelector";
+import { selectAllTVTrendings } from "@servers/repo/tv/getTvTrending.slice";
 
 const TrendingTV = () => {
   const href = "/tv";
-  const { data: tv, isLoading } = tvApi.useGetTvsQuery({
-    type: TvType.popular,
-  });
+  const isLoading = useAppSelector((state) => state.tvTrending.loading);
+  const datas = useAppSelector(selectAllTVTrendings);
 
   return (
     <section className='container'>
@@ -20,7 +18,7 @@ const TrendingTV = () => {
         </Link>
 
         <List
-          data={tv ?? []}
+          data={datas}
           createItem={({ data }: { data: TV }) => (
             <MovieItem
               href={`${href}/${data.id}`}

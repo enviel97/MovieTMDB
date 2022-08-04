@@ -1,6 +1,6 @@
 import { originImage, w500Image } from "@api/helpers";
 import { Button, ButtonOutline } from "@components/Button";
-import { selectMoviePopularById } from "@servers/repo/movie";
+import { selectMoviePopularById } from "@servers/repo/movie/getMoviesPopular.slice";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import useHomeHeaderItem from "./HomeHeaderItem.styles";
 
@@ -38,7 +38,7 @@ const HomeHeaderItem = ({
             </div>
           </div>
           <div className={styles.itemContentPoster}>
-            <img src={poster} alt={`Poster ${movie.title}`} />
+            <img src={poster} alt={`Poster ${movie.title}`} loading='lazy' />
           </div>
         </div>
       </div>

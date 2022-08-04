@@ -1,8 +1,9 @@
-import tmdbClient from "@api/client";
+import * as Repos from "@servers/repo";
 
 const rootReducer = () => {
+  const repos = Object.assign({}, ...Object.values(Repos));
   return {
-    [tmdbClient.reducerPath]: tmdbClient.reducer,
+    ...repos,
   };
 };
 

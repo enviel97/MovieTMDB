@@ -8,6 +8,7 @@ export const setUpStore = () => {
   const store = configureStore({
     reducer: rootReducer(),
     middleware: (gDM) => gDM().concat(...rootApiMiddleware()),
+    devTools: process.env.NODE_ENV !== "production",
   });
 
   setupListeners(store.dispatch);
@@ -17,7 +18,6 @@ export const setUpStore = () => {
 const store = setUpStore();
 
 setupListeners(store.dispatch);
-
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 

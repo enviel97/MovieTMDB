@@ -1,7 +1,9 @@
-interface IPageHeaderView {}
+interface IPageHeaderView {
+  title: string;
+}
 
 interface IPageHeaderStyles {
   src: string;
 }
 
-type IPageHeaderProps = IPageHeaderView & IComponentChildren;
+type IPageHeaderProps = IPageHeaderView;

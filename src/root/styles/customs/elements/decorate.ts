@@ -1,4 +1,4 @@
-import { flex } from "../../helpers/mixin";
+import { center, flex } from "../../helpers/mixin";
 import { colors } from "@constants";
 import { kStyles } from "../types/props";
 
@@ -29,6 +29,9 @@ const decorate: kStyles = {
   },
   ".mb3": { marginBottom: "3rem" },
   ".mb2": { marginBottom: "2rem" },
+  ".vw100": { minWidth: "100vw" },
+  ".vh100": { minHeight: "100vh" },
+  ".center": center(),
   ".title": {
     fontSize: "1.5rem",
     fontWeight: "bold",

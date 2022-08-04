@@ -22,6 +22,11 @@ const buttonStyle = createUseStyles({
       "&:hover": {
         boxShadow: [0, 0, 5, 10, `${mainColor}4d`],
       },
+      "&[disabled], &:hover[disabled]": {
+        boxShadow: "none",
+        backgroundColor: `${mainColor}4d`,
+        color: `${color}4d`,
+      },
     };
   },
 });

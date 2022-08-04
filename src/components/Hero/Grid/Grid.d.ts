@@ -1,5 +1,8 @@
-interface IGridView {}
+interface IGridView {
+  data: T[];
+  createItem: ({ data: T }) => JSX.Element;
+}
 
 interface IGridStyles {}
 
-type IGridProps = IGridView & IGridStyles;
+type IGridProps = IGridView;
