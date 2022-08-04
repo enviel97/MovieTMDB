@@ -31,6 +31,23 @@ interface TV {
   vote_count: number;
 }
 
+interface Person {
+  profile_path: string;
+  adult: boolean;
+  id: number;
+  known_for: KnownFor[];
+  name: string;
+  popularity: number;
+  known_for_department: string;
+  gender: number;
+}
+
+interface MediaType {
+  media_type: "movie" | "person" | "tv";
+}
+
+type KnownFor = (TV & MediaType) | (Movie & MediaType);
+
 // video
 interface Video {
   id: number;
@@ -49,3 +66,8 @@ interface VideosDetail {
   published_at: Date;
   id: string;
 }
+
+type SearchMultiResult =
+  | (TV & MediaType)
+  | (Movie & MediaType)
+  | (Person & MediaType);

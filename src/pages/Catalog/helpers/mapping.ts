@@ -3,7 +3,7 @@ export const mapDatasToProps = (datas: any[]) => {
   const href = isMovie ? "movie" : "tv";
   return datas.map((data) => ({
     href: `${href}/${data.id}`,
-    src: data.poster_path,
+    src: data.poster_path ?? data.backdrop_path,
     name: data.title ?? data.name,
     voteCount: data.vote_count,
     popularity: data.popularity,

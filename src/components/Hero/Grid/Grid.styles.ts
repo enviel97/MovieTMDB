@@ -9,7 +9,7 @@ const useGridStyles = createUseStyles({
     gap: "1rem",
     marginBottom: "3rem",
     ...breakpoints.tablet({
-      gridTemplateColumns: gridTemplateColumns("150px"),
+      gridTemplateColumns: gridTemplateColumns("120px"),
     }),
   },
 });

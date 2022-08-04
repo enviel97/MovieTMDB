@@ -8,6 +8,9 @@ const useHomeHeaderItem = createUseStyles({
     padding: ["9rem", 0],
     width: "100%",
     height: "90vh",
+    ...breakpoints.tablet({
+      height: "auto",
+    }),
     position: "relative",
     backgroundPosition: "center",
     backgroundSize: "cover",

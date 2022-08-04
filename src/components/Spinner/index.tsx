@@ -40,7 +40,7 @@ const LoaderSpinner = (props: ISpinnerProps) => {
       width={props.width}
     >
       <ClockLoader
-        size={props.spinnerSize ?? "6.25rem"}
+        size={props.spinnerSize ?? "40px"}
         color={props.color ?? colors.primaryColor}
       />
     </Wrapper>

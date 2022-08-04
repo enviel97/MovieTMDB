@@ -10,17 +10,12 @@ import tvApi from "../../api/tvApi";
 const reducerName = "tvs";
 
 export const tvAdapter = createEntityAdapter<TV>();
-export const tvTrendingAdapter = createEntityAdapter<TV>();
 
 export const initialState = tvAdapter.getInitialState({
   isFirstLoad: true,
   loading: false,
   totalPage: 0,
   totalResult: 0,
-});
-
-export const initialTrendingTvState = tvAdapter.getInitialState({
-  loading: false,
 });
 
 export const getTvs = createAsyncThunk(

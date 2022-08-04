@@ -1,5 +1,9 @@
 interface VideoGridView {
-  category: string;
+  data: TV[] | Movie[];
+  isLoadMore?: boolean;
+  loading?: boolean;
+  isFirstLoad?: boolean;
+  loadMore: () => void;
 }
 
 interface VideoGrid {

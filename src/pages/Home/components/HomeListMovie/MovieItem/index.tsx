@@ -9,6 +9,7 @@ import { BsGraphUp, BsHeart } from "react-icons/bs";
 import { formatDate } from "@/helpers/date";
 import LazyLoadBackground from "@components/LazyLoad/background";
 import { useNavigate } from "react-router-dom";
+import useOnScreens from "@/hooks/features/useOnView";
 
 const MovieItemLoading = () => {
   const boxStyle = useBox({});
@@ -44,24 +45,24 @@ const MovieItem = (props: IMovieItemProps) => {
   const [loading, setLoading] = useState(true);
   const styles = useMovieItemStyle();
   const navigate = useNavigate();
+  const { ref, visible } = useOnScreens<HTMLDivElement>({ threshold: 0.1 });
 
   const _onWatchClick = useCallback(() => {
     navigate(href);
   }, [href, navigate]);
 
   useEffect(() => {
-    if (src !== undefined) {
-      setLoading(isLoading ?? true);
-    }
+    setLoading(isLoading ?? true);
   }, [isLoading, src]);
 
   if (loading) return <MovieItemLoading />;
 
   return (
-    <div className={styles.movieCard}>
+    <div ref={ref} className={styles.movieCard}>
       <LazyLoadBackground
+        load={visible ? 1 : 0}
         src={w500Image(src)}
-        className={`${styles.backgroud} ${styles.movieCardContent}`}
+        className={`${styles.backgroud} ${styles.movieCardContent} visible-${visible}`}
       >
         <Button className={"btn-play"} onClick={_onWatchClick}>
           <GiPlayButton />

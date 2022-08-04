@@ -2,7 +2,11 @@ import React, { useRef } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import useModalStyles from "../styles/Modal.styles";
 
-const ModalContent = ({ onClose, className, children }: IModalContentProps) => {
+const ModalContent = ({
+  onClose,
+  className = "",
+  children,
+}: IModalContentProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const styles = useModalStyles();
 

@@ -4,6 +4,13 @@ export enum Category {
   tv = "tv",
 }
 
+export enum SearchType {
+  movie = "movie",
+  tv = "tv",
+  person = "person",
+  all = "multi",
+}
+
 export enum MovieType {
   upcoming = "upcoming",
   popular = "popular",
@@ -31,4 +38,10 @@ export interface PaginateParams<T = MovieType | TvType> {
 export interface VideoParams {
   type: Category;
   id: string;
+}
+
+export interface SearchParams {
+  query: string;
+  type?: SearchType;
+  page?: number;
 }

@@ -1,4 +1,5 @@
 interface IListViews<T> {
+  className?: string;
   data: T[];
   createItem: ({ data: T }) => JSX.Element;
 }

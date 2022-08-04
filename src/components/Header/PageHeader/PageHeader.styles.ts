@@ -17,7 +17,7 @@ const usePageHeaderStyles = createUseStyles({
       position: "relative",
       fontSize: "4rem",
       fontFamily: ["Dosis", "san-serif"],
-      zIndex: 99,
+      zIndex: 98,
     },
 
     "&:after": {

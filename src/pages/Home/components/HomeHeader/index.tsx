@@ -8,13 +8,13 @@ import { trailerVideo } from "@api/helpers";
 import { useAppSelector } from "@/hooks/api/useAppSelector";
 import { selectMovieSlice } from "@servers/repo/movie/getMoviesPopular.slice";
 import videoApi from "@servers/api/videoApi";
+import Spinner from "@components/Spinner";
 
 const HomeHeader = () => {
   // hooks
   const navigate = useNavigate();
   const controller = useRef<IHomeVideoTrialController>(null);
   const movies = useAppSelector(selectMovieSlice);
-
   const onWatchVideoClick = useCallback(
     (id: string) => navigate(`/movie/${id}`),
     [navigate]
@@ -43,18 +43,21 @@ const HomeHeader = () => {
 
   return (
     <section>
-      <HeroSlide
-        data={movies ?? []}
-        createItem={(props: HeroSlideItemProps) => (
-          // Item silde design
-          <HomeHeaderItem
-            data={props.data}
-            className={props.className}
-            onWatchMovieClick={onWatchVideoClick}
-            onWatchTrialClick={onWatchTrailerClick}
-          />
-        )}
-      />
+      {movies.length === 0 && <Spinner.Default height={"90vh"} />}
+      {movies.length !== 0 && (
+        <HeroSlide
+          data={movies ?? []}
+          createItem={(props: HeroSlideItemProps) => (
+            // Item silde design
+            <HomeHeaderItem
+              data={props.data}
+              className={props.className}
+              onWatchMovieClick={onWatchVideoClick}
+              onWatchTrialClick={onWatchTrailerClick}
+            />
+          )}
+        />
+      )}
       <HomeVideoTrial ref={controller} />
     </section>
   );

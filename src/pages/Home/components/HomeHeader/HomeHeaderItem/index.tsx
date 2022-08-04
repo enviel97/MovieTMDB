@@ -38,7 +38,7 @@ const HomeHeaderItem = ({
             </div>
           </div>
           <div className={styles.itemContentPoster}>
-            <img src={poster} alt={`Poster ${movie.title}`} />
+            <img src={poster} alt={`Poster ${movie.title}`} loading='lazy' />
           </div>
         </div>
       </div>
