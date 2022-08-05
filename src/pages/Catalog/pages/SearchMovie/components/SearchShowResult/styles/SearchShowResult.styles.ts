@@ -3,15 +3,18 @@ import { createUseStyles } from "react-jss";
 
 const useSearchShowResultStyles = createUseStyles({
   searchShowResult: {
-    columnCount: 2,
+    display: "grid",
+    gridTemplateColumns: "auto auto auto",
+    gap: "1.5rem",
+    gridTemplateRows: "max-content",
+
     ...breakpoints.tablet({
-      columnCount: 1,
+      gridTemplateColumns: "auto auto",
     } as any),
-    columnGap: "1.5rem",
+    ...breakpoints.mobile({
+      gridTemplateColumns: "auto",
+    } as any),
   },
-  searchShowResultItem: {
-    breakInside: "avoid",
-    marginBottom: "1.5rem",
-  },
+  searchShowResultItem: {},
 });
 export default useSearchShowResultStyles;

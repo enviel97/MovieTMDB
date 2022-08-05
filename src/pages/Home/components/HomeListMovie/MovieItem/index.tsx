@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useBox from "@/hooks/styles/useBox";
 import { w500Image } from "@api/helpers";
 import Spinner from "@components/Spinner";
@@ -8,8 +8,7 @@ import { Button } from "@components/Button";
 import { BsGraphUp, BsHeart } from "react-icons/bs";
 import { formatDate } from "@/helpers/date";
 import LazyLoadBackground from "@components/LazyLoad/background";
-import { useNavigate } from "react-router-dom";
-import useOnScreens from "@/hooks/features/useOnView";
+import { Link } from "react-router-dom";
 
 const MovieItemLoading = () => {
   const boxStyle = useBox({});
@@ -44,12 +43,6 @@ const MovieItem = (props: IMovieItemProps) => {
 
   const [loading, setLoading] = useState(true);
   const styles = useMovieItemStyle();
-  const navigate = useNavigate();
-  const { ref, visible } = useOnScreens<HTMLDivElement>({ threshold: 0.1 });
-
-  const _onWatchClick = useCallback(() => {
-    navigate(href);
-  }, [href, navigate]);
 
   useEffect(() => {
     setLoading(isLoading ?? true);
@@ -58,13 +51,12 @@ const MovieItem = (props: IMovieItemProps) => {
   if (loading) return <MovieItemLoading />;
 
   return (
-    <div ref={ref} className={styles.movieCard}>
+    <Link className='normal' to={href}>
       <LazyLoadBackground
-        load={visible ? 1 : 0}
         src={w500Image(src)}
-        className={`${styles.backgroud} ${styles.movieCardContent} visible-${visible}`}
+        className={`${styles.backgroud} ${styles.movieCardContent}`}
       >
-        <Button className={"btn-play"} onClick={_onWatchClick}>
+        <Button className={"btn-play"}>
           <GiPlayButton />
         </Button>
         {!!isAdult && <div className={`${"adult-flag"}`}>adult</div>}
@@ -72,20 +64,16 @@ const MovieItem = (props: IMovieItemProps) => {
           {!!releaseDate && <h3>{formatDate(releaseDate)}</h3>}
           <div className='info-voting'>
             <span>
-              <BsHeart />
-              &emsp;
-              {voteCount}
+              <BsHeart /> &emsp; {voteCount}
             </span>
             <span>
-              <BsGraphUp />
-              &emsp;
-              {popularity}
+              <BsGraphUp /> &emsp; {popularity}
             </span>
           </div>
         </div>
       </LazyLoadBackground>
       <h3 className={styles.movieTitle}>{name}</h3>
-    </div>
+    </Link>
   );
 };
 

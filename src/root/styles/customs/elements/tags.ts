@@ -8,6 +8,11 @@ const interactive: kStyles = {
     "&:hover": {
       color: colors.primaryColor,
     },
+    "&.normal": {
+      "&:hover": {
+        color: "unset",
+      },
+    },
   },
   "button, input": { outline: 0 },
   ul: { listStyleType: "none" },

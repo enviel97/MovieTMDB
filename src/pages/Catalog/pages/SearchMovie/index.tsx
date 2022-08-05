@@ -1,6 +1,6 @@
 import { PageHeader } from "@components/Header";
 import React from "react";
-import SearchEngine from "../components/SearchEngine";
+import SearchEngine from "./components/SearchEngine";
 
 const SearchPage = () => {
   return (

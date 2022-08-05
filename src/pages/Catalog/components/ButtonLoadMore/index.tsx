@@ -1,7 +1,7 @@
 import { ButtonOutline } from "@components/Button";
 import Spinner from "@components/Spinner";
 import useButtonLoadMore from "./ButtonLoadMore.styles";
-interface ButtonLoadMoreProps {
+export interface ButtonLoadMoreProps {
   isLoadMore?: boolean;
   loadMore: () => void;
   loading?: boolean;
