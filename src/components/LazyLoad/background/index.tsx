@@ -14,6 +14,7 @@ const LazyLoadBackground = (props: IBackgroundProps) => {
     if (src === props.src || load === 0) return;
     const image = new Image();
     image.src = props.src;
+    image.loading = "lazy";
     // set src affter loading success
     image.onload = () => {
       setSrc(props.src);

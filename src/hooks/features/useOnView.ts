@@ -7,15 +7,16 @@ const useOnScreens = <T extends HTMLElement = HTMLElement>(
   const [visible, setVisible] = useState<boolean>(false);
   useEffect(
     () => {
+      const element = ref.current;
       const observer = new IntersectionObserver(([entry]) => {
         setVisible(entry.isIntersecting);
       }, options);
-      if (!!ref.current) {
-        observer.observe(ref.current);
+      if (!!element) {
+        observer.observe(element);
       }
       return () => {
-        if (!!ref.current) {
-          observer.unobserve(ref.current);
+        if (!!element) {
+          observer.unobserve(element);
         }
       };
     },

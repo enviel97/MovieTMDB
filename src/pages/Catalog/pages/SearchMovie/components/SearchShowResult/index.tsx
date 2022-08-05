@@ -42,6 +42,7 @@ const SearchShowResult = () => {
               />
             );
         }
+        return null;
       })}
     </div>
   );
