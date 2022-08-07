@@ -31,7 +31,7 @@ const useSearchItem = createUseStyles({
   },
   SearchItemImage: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: colors.black,
     "& *": {
       height: "100%",
       width: "100%",
