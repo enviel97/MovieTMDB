@@ -1,7 +1,7 @@
 import React from "react";
 
-const DetailNotDefine = () => {
+const UpdatingLate = () => {
   return <div>don't have any</div>;
 };
 
-export default DetailNotDefine;
+export default UpdatingLate;

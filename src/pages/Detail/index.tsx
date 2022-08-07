@@ -1,15 +1,15 @@
 import Detail from "./pages";
 import { RouteObject } from "react-router-dom";
-import DetailNotDefine from "./pages/DetailNotDefine";
+import UpdatingLate from "@pages/static/Updating";
 
 const detailRoute: RouteObject[] = [
   {
     path: "/person/:id",
-    element: <DetailNotDefine />,
+    element: <UpdatingLate />,
   },
   {
     path: "/:category/:id",
-    element: <Detail />,
+    element: <Detail key={Date.now()} />,
   },
 ];
 

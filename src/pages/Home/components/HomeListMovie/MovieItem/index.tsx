@@ -7,7 +7,7 @@ import { GiPlayButton } from "react-icons/gi";
 import { Button } from "@components/Button";
 import { BsGraphUp, BsHeart } from "react-icons/bs";
 import { formatDate } from "@/helpers/date";
-import LazyLoadBackground from "@components/LazyLoad/background";
+import LazyLoadBackground from "@components/Image/LazyBackground";
 import { Link } from "react-router-dom";
 
 const MovieItemLoading = () => {
@@ -51,7 +51,7 @@ const MovieItem = (props: IMovieItemProps) => {
   if (loading) return <MovieItemLoading />;
 
   return (
-    <Link className='normal' to={href}>
+    <Link className='normal' to={href} reloadDocument={true}>
       <LazyLoadBackground
         src={w500Image(src)}
         className={`${styles.backgroud} ${styles.movieCardContent}`}
