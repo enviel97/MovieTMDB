@@ -13,10 +13,26 @@ const useSearchItem = createUseStyles({
       [0, 6, 10, 0, "#ffffff33"],
       [0, 8, 22, 0, "#ffffff32"],
     ],
+    "& .type": {
+      position: "absolute",
+      height: "fit-content",
+      width: "fit-contnet",
+      padding: [".1rem", ".9rem"],
+      border: [3, "solid", "#FFFFFF"],
+      textAlign: "center",
+      boxShadow: [0, 4, 4, "#00000033"],
+      borderRadius: [10, 25, 10, 10],
+      fontFamily: ["Dosis", "sans-serif"],
+      fontSize: "1rem",
+      backgroundColor: `${colors.primaryColor}bb`,
+      left: 0,
+      bottom: 0,
+    },
   },
   SearchItemImage: {
     flex: 1,
-    "& > img": {
+    backgroundColor: "red",
+    "& *": {
       height: "100%",
       width: "100%",
       display: "block",
@@ -46,23 +62,12 @@ const useSearchItem = createUseStyles({
         fontSize: ".9rem",
         color: `${colors.white}aa`,
       },
-      "&__title, &__type": {
-        fontFamily: ["Dosis", "sans-serif"],
-        fontSize: "1.5rem",
-      },
       "&__title": {
-        width: "85%",
+        width: "100%",
         color: colors.primaryColor,
         textTransform: "uppercase",
-      },
-      "&__type": {
-        height: "fit-content",
-        width: "fit-contnet",
-        padding: [".1rem", ".9rem"],
-        border: [3, "solid", "#FFFFFF"],
-        textAlign: "center",
-        boxShadow: [0, 4, 4, "#00000033"],
-        borderRadius: [10, 10, 10, 25],
+        fontFamily: ["Dosis", "sans-serif"],
+        fontSize: "1.5rem",
       },
     },
     "& .gender-list": {
@@ -97,6 +102,7 @@ const useSearchItem = createUseStyles({
       "&__overview": {
         fontSize: "1rem",
         display: "-webkit-box",
+        textAlign: "justify",
         "-webkit-line-clamp": 5,
         ...breakpoints.mobile({
           "-webkit-line-clamp": 3,
@@ -106,12 +112,13 @@ const useSearchItem = createUseStyles({
       },
       "&__info-voting": {
         ...flex("center", "end"),
-        backgroundColor: colors.backgroundColor,
+        backgroundColor: colors.black,
         fontFamily: ["Dosis", "sans-serif"],
 
         "& span": {
           ...flex("center", "center"),
-          margin: ".1rem 1rem",
+          margin: "0rem 1rem",
+          marginTop: "1rem",
         },
       },
     },

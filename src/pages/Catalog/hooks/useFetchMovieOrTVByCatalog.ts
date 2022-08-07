@@ -6,7 +6,7 @@ import { selectVideobyCatalog } from "@servers/selector/select_video";
 import { MovieType, TvType } from "@servers/types/props";
 import { useCallback, useEffect, useState } from "react";
 
-const useFetchData = (catelogy: string) => {
+const useFetchMovieOrTVByCatalog = (catelogy: string) => {
   const dispatch = useAppDispatch();
   const catalog = `${catelogy}s`;
   const [page, setPage] = useState(1);
@@ -36,4 +36,4 @@ const useFetchData = (catelogy: string) => {
   };
 };
 
-export default useFetchData;
+export default useFetchMovieOrTVByCatalog;

@@ -29,8 +29,6 @@ const SearchEngine = () => {
     return () => {};
   }, [page, dispatch, query]);
 
-  // const { isFirstLoad, isLoadMore, loadMore, loading } = useSearchData(query);
-
   return (
     <section className='container'>
       <div className='section mb3'>

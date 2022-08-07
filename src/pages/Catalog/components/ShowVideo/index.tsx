@@ -1,12 +1,11 @@
-import useFetchData from "@pages/Catalog/hooks/useFetchData";
+import useFetchMovieOrTVByCatalog from "@pages/Catalog/hooks/useFetchMovieOrTVByCatalog";
 import LoadingWraper from "../LoadingWrapper";
 import MovieSearch from "../MovieSearch";
 import VideoGrid from "../VideoGrid";
 
 const ShowVideo = (props: { category: string }) => {
-  const { isFirstLoad, data, isLoadMore, loadMore, loading } = useFetchData(
-    props.category
-  );
+  const { isFirstLoad, data, isLoadMore, loadMore, loading } =
+    useFetchMovieOrTVByCatalog(props.category);
 
   return (
     <section className='container'>

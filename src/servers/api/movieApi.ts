@@ -7,9 +7,7 @@ const movieApi = {
   async getMovies(props: PaginateParams<MovieType>) {
     const response = await client.get<Paginate<Movie>>(
       `${pathUrl}${props.type}`,
-      {
-        params: { page: props.page ?? 1 },
-      }
+      { params: { page: props.page ?? 1 } }
     );
     return response;
   },

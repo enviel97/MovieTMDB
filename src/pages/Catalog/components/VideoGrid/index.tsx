@@ -1,6 +1,4 @@
-import { ButtonOutline } from "@components/Button";
 import Grid from "@components/Hero/Grid";
-import Spinner from "@components/Spinner";
 import MovieItem from "@pages/Home/components/HomeListMovie/MovieItem";
 import React from "react";
 import { mapDatasToProps } from "../../helpers/mapping";

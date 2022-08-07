@@ -27,6 +27,7 @@ const SearchMovieItem = (props: SearchItemProps) => {
         aldut={movie.adult}
         alt={`Poster: ${movie.title}`}
       />
+      <h1 className='type'>MOVIEs</h1>
       <div className={styles.SearchItemInfo}>
         <div className='header'>
           <h2 className='header__title'>
@@ -35,7 +36,6 @@ const SearchMovieItem = (props: SearchItemProps) => {
               ({formatDate(movie.release_date, { format: "MMM, yyyy" })})
             </p>
           </h2>
-          <h1 className='header__type'>MOVIEs</h1>
         </div>
         <div className='gender-list'>
           {movie.genre_ids.map((data) => (

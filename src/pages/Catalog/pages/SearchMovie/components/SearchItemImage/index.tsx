@@ -10,7 +10,7 @@ const SearchItemImage = (props: SearchItemImage) => {
   const styles = useSearchItemImage();
   const src = !imagePath ? error : w500Image(imagePath);
   return (
-    <div className={`${styles.image} ${className || ""}`}>
+    <figure className={`${styles.image} ${className || ""}`}>
       <img
         src={src}
         loading='lazy'
@@ -26,7 +26,7 @@ const SearchItemImage = (props: SearchItemImage) => {
           onError={(e) => (e.currentTarget.src = error)}
         />
       )}
-    </div>
+    </figure>
   );
 };
 

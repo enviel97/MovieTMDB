@@ -1,4 +1,4 @@
-import { colors, decorates } from "@constants";
+import { decorates } from "@constants";
 import { createUseStyles } from "react-jss";
 
 const useSearchInputStyles = createUseStyles({

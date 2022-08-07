@@ -14,7 +14,7 @@ const MovieSearch = (props: MovieSearchProps) => {
       setSearch(value);
       props.onSearchChange?.call(this, value);
     },
-    [props.searchConfirm]
+    [props.onSearchChange]
   );
 
   const confirmSearch = useCallback(() => {
@@ -22,7 +22,7 @@ const MovieSearch = (props: MovieSearchProps) => {
     if (!query) return;
     props.searchConfirm?.call(this, search?.trim());
     navigator(`/search?q=${query}`);
-  }, [search, props.searchConfirm]);
+  }, [search, navigator, props.searchConfirm]);
 
   useEffect(() => {
     const hitEnterToConfirm = (e: KeyboardEvent) => {

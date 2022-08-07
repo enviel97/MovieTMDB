@@ -1,7 +1,7 @@
 import { center } from "@stylesHelper/mixin";
 import { createUseStyles } from "react-jss";
 
-const useSpinnerStyle = createUseStyles({
+const useWrapperStyles = createUseStyles({
   spinner: (props: ISpinnerStylesProps) => ({
     ...center(),
     height: props.height,
@@ -9,4 +9,4 @@ const useSpinnerStyle = createUseStyles({
   }),
 });
 
-export default useSpinnerStyle;
+export default useWrapperStyles;

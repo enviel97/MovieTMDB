@@ -26,6 +26,7 @@ const SearchTVItem = (props: SearchItemProps) => {
         imagePath={image}
         alt={`Poster: ${tv.name}`}
       />
+      <h2 className='type'>TVs</h2>
       <div className={styles.SearchItemInfo}>
         <div className='header'>
           <h2 className='header__title'>
@@ -34,7 +35,6 @@ const SearchTVItem = (props: SearchItemProps) => {
               ({formatDate(tv.first_air_date, { format: "MMM, yyyy" })})
             </p>
           </h2>
-          <h1 className='header__type'>MOVIEs</h1>
         </div>
         <div className='gender-list'>
           {tv.genre_ids.map((data) => (

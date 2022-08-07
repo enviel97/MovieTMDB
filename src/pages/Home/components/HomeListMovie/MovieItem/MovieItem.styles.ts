@@ -1,4 +1,5 @@
-import { colors, decorates } from "@constants";
+import { colors, decorates, spacings } from "@constants";
+import breakpoints from "@stylesHelper/breakpoint";
 import { flex, stickyHover } from "@stylesHelper/mixin";
 import { createUseStyles } from "react-jss";
 
@@ -41,8 +42,14 @@ const useMovieItemStyle = createUseStyles({
       "&-voting": {
         ...flex("center", "space-between"),
         marginTop: ".5rem",
+
         "& span": {
           ...flex("center", "center"),
+          ...breakpoints.custom(
+            { maxLimit: 1640, minLimit: spacings.device.tablet },
+            { display: "none" }
+          ),
+          ...breakpoints.mobile({ display: "none" }),
         },
       },
       opacity: 0,

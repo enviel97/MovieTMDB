@@ -32,7 +32,7 @@ const useHomeHeaderItem = createUseStyles({
       left: 0,
       width: "100%",
       height: "100px",
-      backgroundImage: `liner-gradient(to top, ${colors.backgroundColor}, #00000000)`,
+      backgroundImage: `linear-gradient(to top, ${colors.backgroundColor}, #00000000)`,
     },
 
     "&.active > $itemContent": {

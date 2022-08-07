@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import Catalog from "./pages";
-import { SearchPage } from "./pages/SearchMovie";
+import SearchPage from "./pages/SearchMovie";
 
 const catalogRoute: RouteObject[] = [
   {

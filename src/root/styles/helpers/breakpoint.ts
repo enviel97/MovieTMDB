@@ -1,8 +1,10 @@
 import { Styles } from "react-jss";
 import { spacings } from "@constants";
 
-const media = (breakPoint: number) => {
-  return `@media only screen and (max-width: ${breakPoint}px)`;
+const media = (maxWidth: number, minWidth?: number) => {
+  let breakpoint = `@media only screen and (max-width: ${maxWidth}px)`;
+  if (!!minWidth) breakpoint += ` and (min-width: ${minWidth}px)`;
+  return breakpoint;
 };
 
 const breakpoints = {
@@ -12,8 +14,8 @@ const breakpoints = {
   tablet: (props: Styles) => ({
     [media(spacings.device.tablet)]: { ...props },
   }),
-  custom: (maxLimit: number, props: Styles) => ({
-    [media(maxLimit)]: { ...props },
+  custom: (value: { maxLimit: number; minLimit?: number }, props: Styles) => ({
+    [media(value.maxLimit, value.minLimit)]: { ...props },
   }),
 };
 
