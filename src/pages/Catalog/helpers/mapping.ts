@@ -1,4 +1,4 @@
-const isTvs = (datas: any): datas is TV => {
+const isTvs = (datas: any): datas is TV[] => {
   return datas[0].name !== undefined;
 };
 
