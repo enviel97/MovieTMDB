@@ -34,8 +34,8 @@ const Detail = (props: DetailProps) => {
   return (
     <React.Fragment>
       <ItemHeader {...mapToProp(data)} />
-      <Videos id={data.id} />
-      <Similar id={data.id} />
+      <Videos category={type} id={data.id} />
+      <Similar category={type} id={data.id} />
     </React.Fragment>
   );
 };

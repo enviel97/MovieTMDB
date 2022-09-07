@@ -47,6 +47,7 @@ const useFooterStyles = createUseStyles({
           ...flex("flex-start", "flex-start"),
           "& p": {
             textAlign: "justify",
+            paddingRight: "1rem",
           },
         },
         "&.right": {

@@ -1,13 +1,12 @@
 import List from "@components/Hero/List";
-import { Link, useParams } from "react-router-dom";
-import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
+import { useMemo } from "react";
 import MovieItem from "@pages/Home/components/HomeListMovie/MovieItem";
 import useFetchData from "@/hooks/api/useFetchData";
 import { Category } from "@servers/types/props";
 import videoApi from "@servers/api/videoApi";
 
-const Similar = ({ id }: { id: number }) => {
-  const { category } = useParams();
+const Similar = ({ id, category }: SimilarsProp) => {
   const isMovie = useMemo(() => category === "movie", [category]);
   const href = isMovie ? "/movie" : "/tv";
   const type = category === "movie" ? Category.movie : Category.tv;

@@ -2,24 +2,28 @@ import useFetchData from "@/hooks/api/useFetchData";
 import { trailerVideo } from "@api/helpers";
 import { formatDate } from "@helpers/date";
 import videoApi from "@servers/api/videoApi";
-import { Category } from "@servers/types/props";
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import useVideosStyles from "./Videos.styles";
 
 const Videos = (props: VideosProp) => {
-  const { id, category } = useParams();
+  const { id } = useParams();
   const styles = useVideosStyles();
-  const type = category === "movie" ? Category.movie : Category.tv;
-  const { data } = useFetchData([{ type: type, id: id! }], videoApi.getVideos);
+  const { data } = useFetchData(
+    [{ type: props.category, id: id! }],
+    videoApi.getVideos
+  );
 
-  if (!data) return <h2>Being upload ...</h2>;
   return (
     <div className={`container ${styles.video} ${props.className || ""}`}>
       <div className='section mb3'>
-        {data.results.slice(-5).map((video) => (
-          <Video key={video.key} item={video} />
-        ))}
+        {!data ? (
+          <h2>Being upload ...</h2>
+        ) : (
+          data.results
+            .slice(-5)
+            .map((video) => <Video key={video.key} item={video} />)
+        )}
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ const interactive: kStyles = {
   ul: { listStyleType: "none" },
   img: { maxWidth: "100%" },
   iframe: { border: 0 },
+  section: { height: "fit-content" },
 };
 
 export default interactive;

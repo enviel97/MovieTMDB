@@ -4,10 +4,10 @@ import { StickyHeader } from "@components/Header";
 import Routes from "./root/useRoutes";
 
 const App = () => {
-  const baseName = process.env;
-  console.log(baseName);
+  const baseName = process.env.NODE_ENV === "development" ? "" : "MovieTMDB";
+
   return (
-    <HashRouter basename='MovieTMDB'>
+    <HashRouter basename={baseName}>
       <StickyHeader />
       <Routes />
       <Footer />

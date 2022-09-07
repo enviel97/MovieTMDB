@@ -25,6 +25,7 @@ const defaultStyles: kStyles = {
   body: {
     background: colors.backgroundColor,
     color: colors.white,
+    userSelect: "none",
 
     // default font
     fontFamily: ["Lato", "sans-serif"],

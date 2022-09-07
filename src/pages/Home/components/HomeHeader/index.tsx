@@ -36,6 +36,7 @@ const HomeHeader = () => {
         videoSrc = trailerVideo(data.results[0].key);
         controller.current.connectTrailer(videoSrc);
       }
+      controller.current.loadingIs(false);
     } catch (error) {
       controller.current.loadingIs(false);
     }
