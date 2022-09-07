@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 - Purpose of this project just for review about React, how to apply technical responsive website, how to use css, component, ... .
-- Website help user access to show information about current movie or tvseries in world.
+- Website that helps users find and display information about movies or TV series like overview, trailer, actor / actress, rating, vote, ...
 
 # Technical
 
