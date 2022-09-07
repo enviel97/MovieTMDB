@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/MovieTMDB/static/css/main.88c4c641.css",
+    "main.js": "/MovieTMDB/static/js/main.24bbbd1c.js",
+    "static/media/aldut-only.png": "/MovieTMDB/static/media/aldut-only.69b8f8b826da66818dbd.png",
+    "static/media/bgHeader.jpg": "/MovieTMDB/static/media/bgHeader.215e15e8f0f5c1dea7c8.jpg",
+    "static/media/placeholder.gif": "/MovieTMDB/static/media/placeholder.c0c2f01083736d90f19a.gif",
+    "static/media/bgFooter.jpg": "/MovieTMDB/static/media/bgFooter.70641b5d775de0b161f6.jpg",
+    "static/media/logo_dark.png": "/MovieTMDB/static/media/logo_dark.f52218adaadcba0c4ef9.png",
+    "static/media/no-image-female.jpg": "/MovieTMDB/static/media/no-image-female.075d0006cba0c4156585.jpg",
+    "static/media/no-image-male.jpg": "/MovieTMDB/static/media/no-image-male.30092bd646e811e39600.jpg",
+    "static/media/No_Image_Available.jpg": "/MovieTMDB/static/media/No_Image_Available.2190376628576588df83.jpg",
+    "static/media/no-image-private.jpg": "/MovieTMDB/static/media/no-image-private.3948628318412885d6d9.jpg",
+    "index.html": "/MovieTMDB/index.html",
+    "main.88c4c641.css.map": "/MovieTMDB/static/css/main.88c4c641.css.map",
+    "main.24bbbd1c.js.map": "/MovieTMDB/static/js/main.24bbbd1c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88c4c641.css",
+    "static/js/main.24bbbd1c.js"
+  ]
+}
