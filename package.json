@@ -2,9 +2,11 @@
   "name": "movie",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://enviel97.github.io/MovieTMDB",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "jss-plugin-nested": "^10.9.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
@@ -43,7 +45,9 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
