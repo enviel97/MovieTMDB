@@ -2,7 +2,7 @@
   "name": "movie",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://enviel97.github.io/MovieTMDB/",
+  "homepage": "https://enviel97.github.io/MovieTMDB",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
