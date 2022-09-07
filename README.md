@@ -19,7 +19,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Available Scripts
 
 First, to run this project, please enter api key of tmbd api at file enviroment.\
-sample like at file: [Enviroment Sample](.env.production).\
+sample like: \
+
+REACT_APP_API_KEY = YOUR_API_KEY \
+config link: https://www.themoviedb.org/?language=vi
+
 In the project directory, you can run:
 
 ### - `npm start`
