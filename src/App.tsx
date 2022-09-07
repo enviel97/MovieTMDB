@@ -4,8 +4,10 @@ import { StickyHeader } from "@components/Header";
 import Routes from "./root/useRoutes";
 
 const App = () => {
+  const baseName = process.env;
+  console.log(baseName);
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='MovieTMDB'>
       <StickyHeader />
       <Routes />
       <Footer />

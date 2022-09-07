@@ -2,7 +2,7 @@ import React from "react";
 import { tvGender } from "@servers/types/gender";
 import { BsGraphUp, BsHeart } from "react-icons/bs";
 import Chip from "@components/Chip";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectSearchById } from "@servers/repo/video/search.slice";
 import useSearchItem from "../styles/SearchItem.styles";
 import { formatDate } from "@helpers/date";

@@ -5,7 +5,7 @@ import HomeVideoTrial from "../HomeVideoTrial";
 import { useNavigate } from "react-router-dom";
 import { Category } from "@/servers/types/props";
 import { trailerVideo } from "@api/helpers";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectMovieSlice } from "@servers/repo/movie/getMoviesPopular.slice";
 import videoApi from "@servers/api/videoApi";
 import Spinner from "@components/Spinner";

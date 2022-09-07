@@ -10,12 +10,14 @@ import ItemHeaderLoading from "../components/static/ItemHeaderLoading";
 import Videos from "../components/Videos";
 import { mapToProp } from "../mapping/mapToProps";
 
-const Detail = () => {
-  const { id, category } = useParams();
-  const type = useMemo(
-    () => (category === "movie" ? Category.movie : Category.tv),
-    [category]
-  );
+interface DetailProps {
+  category: string;
+}
+
+const Detail = (props: DetailProps) => {
+  const { id } = useParams();
+  const type = props.category === "movie" ? Category.movie : Category.tv;
+
   const params = useMemo(() => ({ type: type, id: id ?? "" }), [id, type]);
   const { data, loading } = useFetchData<VideoParams, MovieDetail | TVDetail>(
     [params],

@@ -1,7 +1,7 @@
 import List from "@components/Hero/List";
 import { Link } from "react-router-dom";
 import MovieItem from "../MovieItem";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectAllTVTrendings } from "@servers/repo/tv/getTvTrending.slice";
 
 const TrendingTV = () => {

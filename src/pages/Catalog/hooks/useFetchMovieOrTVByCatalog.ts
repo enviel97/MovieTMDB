@@ -1,5 +1,5 @@
 import useAppDispatch from "@/hooks/api/useAppDispatch";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { getMovies } from "@servers/repo/movie/getMovies.silce";
 import { getTvs } from "@servers/repo/tv/getTv.slice";
 import { selectVideobyCatalog } from "@servers/selector/select_video";

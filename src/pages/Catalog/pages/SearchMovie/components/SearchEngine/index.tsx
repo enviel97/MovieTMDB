@@ -1,5 +1,5 @@
 import useAppDispatch from "@/hooks/api/useAppDispatch";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import ButtonLoadMore from "@pages/Catalog/components/ButtonLoadMore";
 import LoadingWraper from "@pages/Catalog/components/LoadingWrapper";
 import MovieSearch from "@pages/Catalog/components/MovieSearch";
