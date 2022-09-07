@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectSearchById } from "@servers/repo/video/search.slice";
 import useSearchItem from "../styles/SearchItem.styles";
 import React from "react";

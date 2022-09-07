@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectAllSearchs } from "@servers/repo/video/search.slice";
 import SearchMovieItem from "./SearchItem/SearchMovieItem";
 import SearchShowEmpty from "./SearchShowEmpty";

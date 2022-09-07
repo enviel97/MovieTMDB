@@ -2,7 +2,7 @@ import List from "@components/Hero/List";
 import MovieItem from "../MovieItem";
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectAllMovieTrendings } from "@servers/repo/movie/getMoviesTrending.slice";
 
 const TopRateMovie = () => {

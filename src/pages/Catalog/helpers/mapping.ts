@@ -1,5 +1,5 @@
 const isTvs = (datas: any): datas is TV[] => {
-  return datas[0].name !== undefined;
+  return datas.length !== 0 && datas[0].name !== undefined;
 };
 
 const herf = (datas: any) => {

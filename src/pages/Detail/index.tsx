@@ -8,8 +8,12 @@ const detailRoute: RouteObject[] = [
     element: <UpdatingLate />,
   },
   {
-    path: "/:category/:id",
-    element: <Detail key={Date.now()} />,
+    path: "/movie/:id",
+    element: <Detail key={Date.now()} category={"movie"} />,
+  },
+  {
+    path: "/tv/:id",
+    element: <Detail key={Date.now()} category={"tv"} />,
   },
 ];
 

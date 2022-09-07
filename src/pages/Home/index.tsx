@@ -4,6 +4,7 @@ import Home from "./pages";
 const homeRoute: RouteObject[] = [
   {
     path: "/",
+    index: true,
     element: <Home key={"Home"} />,
   },
 ];

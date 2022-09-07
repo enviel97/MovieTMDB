@@ -2,7 +2,7 @@ import List from "@components/Hero/List";
 import { Link } from "react-router-dom";
 import MovieItem from "../MovieItem";
 import React from "react";
-import { useAppSelector } from "@/hooks/api/useAppSelector";
+import useAppSelector from "@/hooks/api/useAppSelector";
 import { selectAllMoviePopulars } from "@servers/repo/movie/getMoviesPopular.slice";
 
 const TrendingMovie = () => {

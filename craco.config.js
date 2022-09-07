@@ -18,7 +18,7 @@ module.exports = {
       "@servers": path.resolve(__dirname, "src/servers"),
       "@helpers": path.resolve(__dirname, "src/helpers"),
     },
-    plugins: [new BundleAnalyzerPlugin({ analyzerMode: "server" })],
+    plugins: [new BundleAnalyzerPlugin({ analyzerMode: "json" })],
   },
   jest: {
     configure: {
