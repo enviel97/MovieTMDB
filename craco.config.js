@@ -2,6 +2,8 @@
 const path = require("path");
 const { pathsToModuleNameMapper } = require("ts-jest");
 const { compilerOptions } = require("./tsconfig.paths.json");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   webpack: {
@@ -16,6 +18,7 @@ module.exports = {
       "@servers": path.resolve(__dirname, "src/servers"),
       "@helpers": path.resolve(__dirname, "src/helpers"),
     },
+    plugins: [new BundleAnalyzerPlugin({ analyzerMode: "server" })],
   },
   jest: {
     configure: {
